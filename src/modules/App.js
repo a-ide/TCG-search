@@ -40,6 +40,9 @@ class App extends Component {
     const listItem = this.state.items.map(e => {
       const yellow = e.images.yellowCar ? <p>譲渡会参加</p> : null
       const debut = !e.status.debut ?  <p>近日デビュー</p> : null
+      const profVideo = e.images.profVideo ? <p>紹介動画あり</p> : null
+      const otherVideo = e.images.otherVideo ? <p>その他動画あり</p> : null
+      const shareHouse = e.status.shareHouse ? <p>シェアハウス入居</p> : null
       return (
         <div className='list__item' key={e.status.num}>
           <div className='list__thumb'>
@@ -51,6 +54,9 @@ class App extends Component {
             <p>{e.status.age}</p>
             {yellow}
             {debut}
+            {profVideo}
+            {otherVideo}
+            {shareHouse}
           </div>
         </div>
       )
