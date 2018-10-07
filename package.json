@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "diff": "node src/diff.js",
-    "start": "webpack-dev-server --config ./webpack-front.config.js",
+    "build:back": "npx webpack --config ./webpack-back.config.js",
     "build:front": "npx webpack --config ./webpack-front.config.js",
-    "build:back": "npx webpack --config ./webpack-back.config.js"
+    "start": "npm run build:back && webpack-dev-server --config ./webpack-front.config.js",
+    "check:back": "npm run build:back && node dist/sub.js"
   },
   "repository": {
     "type": "git",
