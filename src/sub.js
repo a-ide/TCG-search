@@ -6,11 +6,15 @@ import updateJSON from './modules/updateJSON'
 (async () => {
   try {
     // 最新の猫リストを取得
-    const latestJSON = await getJSON();
-    // catList.json を更新
-    updateJSON(latestJSON, path.join(__dirname, './data/catList.json'))
+    const latestChildJSON = await getJSON('.clearfix.container > div > .page > div > article:nth-child(8) > .row-eq-height > .catsitem');
+    const latestAduletJSON = await getJSON('.clearfix.container > div > .page > div > article:nth-child(11) > .row-eq-height > .catsitem');
+    const latestJSON = await latestChildJSON.concat(latestAduletJSON)
 
-    // const beforeJSON = await readJSON('./data/catList.json')
+    // catList.json を更新
+    await updateJSON(
+      JSON.stringify(latestJSON),
+      path.join(__dirname, './data/catList.json')
+    )
   } catch (error) {
     console.log(error)
   }
