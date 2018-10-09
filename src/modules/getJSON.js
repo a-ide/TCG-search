@@ -17,7 +17,7 @@ const getJSON = async (target) => {
   await delay(1000)
 
   const list = await page.evaluate((target) => {
-    return new Promise((resolve, _reject) => {
+    return new Promise((resolve) => {
       resolve(Array.from(document.querySelectorAll(target)).map(item => {
         const images = {}
         const status = {}
