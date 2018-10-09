@@ -3,13 +3,13 @@ import delay from 'delay'
 
 const getJSON = async (target) => {
   const browser = await puppeteer.launch({
-    slowMo: 50
+    slowMo: 50,
   })
 
   const page = await browser.newPage()
   await page.setViewport({
     width: 1200,
-    height: 800
+    height: 800,
   })
 
   await page.goto('https://tokyocatguardian.org/cats_date/')
@@ -90,7 +90,7 @@ const getJSON = async (target) => {
         return { 
           url: item.querySelector('a').href,
           images: images,
-          status: status
+          status: status,
         }
       }))
     })

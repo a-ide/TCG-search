@@ -18,7 +18,7 @@ const downloadImg = async (list) => {
     const res = await promisify(request)({
       method: 'GET',
       uri: item.images.thumb,
-      encoding: null
+      encoding: null,
     })
     if (res.statusCode === 200) {
       await promisify(fs.writeFile)(path.join(__dirname, `img/${fileName}`), res.body, 'binary')
