@@ -1,7 +1,5 @@
-import { promisify } from 'util';
-
-const puppeteer = require('puppeteer');
-const delay = require('delay');
+import puppeteer from 'puppeteer'
+import delay from 'delay'
 
 const getJSON = async (target) => {
   const browser = await puppeteer.launch({
@@ -53,7 +51,7 @@ const getJSON = async (target) => {
       
               // シリアル番号を取得
               if ((/^No./).test(text)) {
-                status.num = text.substr(3);
+                status.num = text.substr(3)
               }
               
               // 年齢を取得

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import request from 'request'
-import { promisify } from 'util';
+import { promisify } from 'util'
 import readFile from './readFile'
 
 const downloadImg = async (list) => {
