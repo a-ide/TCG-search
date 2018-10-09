@@ -19,9 +19,9 @@ const getJSON = async (target) => {
   const list = await page.evaluate((target) => {
     return new Promise((resolve, _reject) => {
       resolve(Array.from(document.querySelectorAll(target)).map(item => {
-        let images = new Object();
-        let status = new Object();
-        
+        const images = {}
+        const status = {}
+
         // 画像の情報を取得し、オブジェクトに状態を追加
         const imageItem = item.getElementsByTagName('img')
         Array.from(imageItem).map(image => {
