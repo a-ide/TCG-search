@@ -2,6 +2,7 @@ import 'babel-polyfill'
 import path from 'path'
 import getJSON from './modules/getJSON'
 import updateJSON from './modules/updateJSON'
+import downloadImg from './modules/downloadImg'
 
 (async () => {
   try {
@@ -15,6 +16,9 @@ import updateJSON from './modules/updateJSON'
       JSON.stringify(latestJSON),
       path.join(__dirname, './data/catList.json')
     )
+
+    // 猫の画像をダウンロード
+    await downloadImg(path.join(__dirname, './data/catList.json'))
   } catch (error) {
     console.log(error)
   }
