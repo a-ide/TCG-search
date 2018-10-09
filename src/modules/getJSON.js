@@ -25,8 +25,8 @@ const getJSON = async (target) => {
         // 画像の情報を取得し、オブジェクトに状態を追加
         const imageItem = item.getElementsByTagName('img')
         Array.from(imageItem).map(image => {
-          const imgSrc = image.getAttribute("src")
-          
+          const imgSrc = image.getAttribute('src')
+
           if ((/yellow_car_icon/).test(imgSrc)) {
             // 譲渡会参加の有無
             images.yellowCar = true
@@ -41,7 +41,7 @@ const getJSON = async (target) => {
             images.thumb = imgSrc.replace(/\d+300x225/g, '')
           }
         })
-        
+
         // テキストを取得し、、オブジェクトに状態を追加
         const texts = item.getElementsByTagName('p')
         Array.from(texts).map((item, i) => {
@@ -53,7 +53,7 @@ const getJSON = async (target) => {
               if ((/^No./).test(text)) {
                 status.num = text.substr(3)
               }
-              
+
               // 年齢を取得
               if ((/^\(推定/).test(text)) {
                 let age = text.replace(/[^0-9]/g, '')
@@ -66,7 +66,7 @@ const getJSON = async (target) => {
                 }
                 status.age = age
               }
-              
+
               // 性別を取得
               if ((/♂|♀/).test(text)) {
                 status.sex = text === '♂' ? 'M' : 'F'
@@ -76,7 +76,7 @@ const getJSON = async (target) => {
               if ((/^シェアハウス入居$/).test(text)) {
                 status.shareHouse = true
               }
-              
+
               // デビューの状態を取得
               status.debut = true
               if ((/^★近日デビュー$/).test(text)) {
@@ -85,9 +85,9 @@ const getJSON = async (target) => {
             }
           })
         })
-        
+
         // 各猫の情報をオブジェクト化
-        return { 
+        return {
           url: item.querySelector('a').href,
           images: images,
           status: status,
