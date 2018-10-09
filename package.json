@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
     "build:back": "npx webpack --config ./webpack-back.config.js",
     "build:front": "npx webpack --config ./webpack-front.config.js",
     "start": "npm run build:back && webpack-dev-server --config ./webpack-front.config.js",
-    "check:back": "npm run build:back && node dist/sub.js"
+    "check:back": "npm run build:back && npm run clean:img && node dist/sub.js"
   },
   "repository": {
     "type": "git",
