@@ -44,11 +44,11 @@ const getJSON = async (target) => {
 
         // テキストを取得し、、オブジェクトに状態を追加
         const texts = item.getElementsByTagName('p')
-        Array.from(texts).map((item, i) => {
-          Array.from(item.childNodes).map(value => {
+        Array.from(texts).map((content) => {
+          Array.from(content.childNodes).map(value => {
             if (value.textContent.trim() !== '') {
-              let text = value.textContent.trim()
-      
+              const text = value.textContent.trim()
+
               // シリアル番号を取得
               if ((/^No./).test(text)) {
                 status.num = text.substr(3)
