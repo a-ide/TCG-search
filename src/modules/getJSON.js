@@ -38,7 +38,7 @@ const getJSON = async (target) => {
             images.otherVideo = true
           } else {
             // サムネイルを設定
-            images.thumb = imgSrc.replace(/\d+300x225/g, '')
+            images.thumb = imgSrc
           }
         })
 

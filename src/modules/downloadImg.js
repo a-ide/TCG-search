@@ -13,7 +13,7 @@ const downloadImg = async (list) => {
     }
 
     // ファイル名を取得
-    const fileName = item.images.thumb.split('/').pop()
+    const fileName = item.images.thumb.split('/').pop().split('_')[0].toUpperCase()
     // ファイルを取得
     const res = await promisify(request)({
       method: 'GET',
@@ -21,7 +21,7 @@ const downloadImg = async (list) => {
       encoding: null,
     })
     if (res.statusCode === 200) {
-      await promisify(fs.writeFile)(path.join(__dirname, `img/${fileName}`), res.body, 'binary')
+      await promisify(fs.writeFile)(path.join(__dirname, `img/${fileName}.jpg`), res.body, 'binary')
     } else {
       throw new Error(`${res.statusCode}`)
     }
