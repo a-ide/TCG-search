@@ -1,8 +1,8 @@
 import 'babel-polyfill'
 import path from 'path'
-import getJSON from './modules/getJSON'
-import updateJSON from './modules/updateJSON'
-import downloadImg from './modules/downloadImg'
+import getJSON from './modules/backend/getJSON'
+import updateJSON from './modules/backend/updateJSON'
+import downloadImg from './modules/backend/downloadImg'
 
 (async () => {
   try {
