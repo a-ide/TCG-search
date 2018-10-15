@@ -69,7 +69,7 @@ const getJSON = async (target) => {
 
               // 性別を取得
               if ((/♂|♀/).test(text)) {
-                status.sex = text === '♂' ? 'M' : 'F'
+                status.sex = text === '♂' ? '男の子' : '女の子'
               }
 
               // シェアハウス入居の状態を取得
