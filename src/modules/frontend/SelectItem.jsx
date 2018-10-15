@@ -3,33 +3,42 @@ import React from 'react'
 class SelectItem extends React.Component {
   constructor(props) {
     super(props)
+    this.name = props.name
     this.state = {
-      items: props.items,
-      value: props.value,
+      list: props.options,
+      value: props.value
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ items: nextProps.items })
+    this.setState({ list: nextProps })
+    this.setState({ value: nextProps.value })
   }
 
-  // セレクトボックスの値が変化した時
+  // セレクトボックスの値が変化した時、value を変更
   changeValue(e) {
     this.setState({ value: e.target.value })
+    const currentCondition = this.props.setFilterValue(e.target.name, e.target.value)
+    this.props.filter(currentCondition)
   }
 
   render() {
-    console.log(this.state.items)
-    const options = this.state.items.map(val => {
-      return(
-        <option key={val} value={val}>{val}</option>
-      )
-    })
+    let optionList
+    if (this.state.list !== undefined) {
+      if (this.state.list.options !== undefined) {
+        optionList = this.state.list.options.map(value => {
+          return(
+            <option key={value} option={value} value={value}>{value}</option>
+          )
+        })
+      }
+    }
+
     return(
-      <select
-        value={this.state.value}
+      <select name={this.name}
         onChange={e => this.changeValue(e)}>
-        {options}
+        <option>選択してください</option>
+        {optionList}
       </select>
     )
   }
