@@ -24,7 +24,7 @@ class App extends React.Component {
       const res = await request.get('./data/catList.json')
         .accept('application/json')
       this.loadedJSON(res)
-      this.setOption()
+      this.setOption({ age: [], sex: [] })
     } catch (err) {
       console.log(err)
     }
@@ -39,19 +39,20 @@ class App extends React.Component {
     })
   }
 
-  // 猫リストから選択肢を抽出（ここまとめられないかなー）
-  setOption() {
-    const ageGroup = this.state.list.map(e => e.status.age)
-    const ageResult = ageGroup.filter((value, index, array) => {
-      return array.indexOf( value ) === index;
+  // 猫リストから選択肢を抽出
+  setOption(keys) {
+    let newArray = []
+    const condition = Object.keys(keys)
+
+    condition.map(key => {
+      const group = this.state.list.map(e => e.status[key])
+      const result = group.filter((value, index, array) => {
+        return array.indexOf( value ) === index;
+      })
+      newArray.push(result)
     })
 
-    const sexGroup = this.state.list.map(e => e.status.sex)
-    const sexResult = sexGroup.filter((value, index, array) => {
-      return array.indexOf( value ) === index;
-    })
-
-    this.setState({ options: [ageResult, sexResult] })
+    this.setState({ options: newArray })
   }
 
   setFilterValue(name, value) {
