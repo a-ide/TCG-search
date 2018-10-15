@@ -29,13 +29,13 @@ const getJSON = async (target) => {
 
           if ((/yellow_car_icon/).test(imgSrc)) {
             // 譲渡会参加の有無
-            images.yellowCar = true
+            status.yellowCar = true
           } else if ((/icn_prof/).test(imgSrc)) {
             // 紹介動画の有無
-            images.profVideo = true
+            status.profVideo = true
           } else if ((/icn_other/).test(imgSrc)) {
             // その他動画の有無
-            images.otherVideo = true
+            status.otherVideo = true
           } else {
             // サムネイルを設定
             images.thumb = imgSrc
