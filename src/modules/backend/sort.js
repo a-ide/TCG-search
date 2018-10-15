@@ -31,9 +31,7 @@ const sort = async (list) => {
   })
 
   // ソートしたリストを合体
-  const newArray = childArray.concat(adultArray)
-
-  return newArray
+  return childArray.concat(adultArray)
 }
 
 export default sort

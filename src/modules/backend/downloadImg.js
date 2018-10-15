@@ -1,8 +1,8 @@
-import fs from 'fs'
-import path from 'path'
-import request from 'request'
+import fs            from 'fs'
+import path          from 'path'
+import request       from 'request'
 import { promisify } from 'util'
-import readFile from './readFile'
+import readFile      from './readFile'
 
 const downloadImg = async (list) => {
   const data = await readFile(list)
@@ -14,12 +14,14 @@ const downloadImg = async (list) => {
 
     // ファイル名を取得
     const fileName = item.images.thumb.split('/').pop().split('_')[0].toUpperCase()
+
     // ファイルを取得
     const res = await promisify(request)({
       method: 'GET',
       uri: item.images.thumb,
       encoding: null,
     })
+    
     if (res.statusCode === 200) {
       await promisify(fs.writeFile)(path.join(__dirname, `img/${fileName}.jpg`), res.body, 'binary')
     } else {

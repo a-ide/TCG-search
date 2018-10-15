@@ -1,5 +1,4 @@
 import React from 'react'
-// import request from 'superagent'
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class ListItem extends React.Component {
   }
 
   // マウントされる時
-  
   componentWillReceiveProps(nextProps) {
     this.setState({ list: nextProps.listData})
   }
@@ -24,9 +22,9 @@ class ListItem extends React.Component {
 
     // 読み込んだデータからアイテムを作る
     const listItem = this.state.list.map(elm => {
-      const yellow = elm.images.yellowCar ? <p>譲渡会参加</p> : null
-      const debut = !elm.status.debut ? <p>近日デビュー</p> : null
-      const profVideo = elm.images.profVideo ? <p>紹介動画あり</p> : null
+      const yellow     = elm.images.yellowCar ? <p>譲渡会参加</p> : null
+      const debut      = !elm.status.debut ? <p>近日デビュー</p> : null
+      const profVideo  = elm.images.profVideo ? <p>紹介動画あり</p> : null
       const otherVideo = elm.images.otherVideo ? <p>その他動画あり</p> : null
       const shareHouse = elm.status.shareHouse ? <p>シェアハウス入居</p> : null
 

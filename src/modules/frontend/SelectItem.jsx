@@ -24,6 +24,7 @@ class SelectItem extends React.Component {
 
   render() {
     let optionList
+    
     if (this.state.list !== undefined) {
       if (this.state.list.options !== undefined) {
         optionList = this.state.list.options.map(value => {

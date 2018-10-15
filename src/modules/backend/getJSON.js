@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-import delay from 'delay'
+import delay     from 'delay'
 
 const getJSON = async (target) => {
   const browser = await puppeteer.launch({
