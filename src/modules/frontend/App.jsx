@@ -80,12 +80,15 @@ class App extends React.Component {
   }
 
   render() {
+    const noListMsg = this.state.list.length === 0 ? <p>条件に該当するにゃんこはいません</p> : null
+
     return (
       <div>
         <Form
           options={this.state.options}
           filter={this.filter}
           setFilterValue={this.setFilterValue} />
+        {noListMsg}
         <ListItem
           listData={this.state.list} />
       </div>
