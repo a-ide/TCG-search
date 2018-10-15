@@ -14,8 +14,9 @@ const sort = async (list) => {
 
   // 1 歳未満の猫を若い順にソート
   childArray.sort((a, b) => {
-    const aAge = a.status.age.substr(0, 1)
-    const bAge = b.status.age.substr(0, 1)
+    const getFirtNum = (item) => item.status.age.substr(0, 1)
+    const [aAge, bAge] = [getFirtNum(a), getFirtNum(b)]
+    
     if (aAge > bAge) return 1
     if (aAge < bAge) return -1
     return 0
@@ -23,8 +24,9 @@ const sort = async (list) => {
 
   // 1 歳以上の猫を若い順にソート
   adultArray.sort((a, b) => {
-    const aAge = parseInt(a.status.age.replace(/[^0-9]/g, ''))
-    const bAge = parseInt(b.status.age.replace(/[^0-9]/g, ''))
+    const getNum = (item) => parseInt(item.status.age.replace(/[^0-9]/g, ''))
+    const [aAge, bAge] = [getNum(a), getNum(b)]
+    
     if (aAge > bAge) return 1
     if (aAge < bAge) return -1
     return 0
