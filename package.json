@@ -1,0 +1,54 @@
+{
+  "name": "tcg-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
+    "build:back": "npx webpack --config ./webpack-back.config.js",
+    "build:front": "npx webpack --config ./webpack-front.config.js",
+    "start": "npm run build:back && webpack-dev-server --config ./webpack-front.config.js",
+    "check:back": "npm run build:back && npm run clean:img && node dist/sub.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-ide/TCG-search.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-ide/TCG-search/issues"
+  },
+  "homepage": "https://github.com/a-ide/TCG-search#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "deep-object-diff": "^1.1.0",
+    "delay": "^4.0.1",
+    "puppeteer": "^1.9.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "request": "^2.88.0",
+    "superagent": "^4.0.0-beta.5"
+  }
+}
