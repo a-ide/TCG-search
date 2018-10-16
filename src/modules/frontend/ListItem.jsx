@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -22,14 +23,16 @@ class ListItem extends React.Component {
 
     // 読み込んだデータからアイテムを作る
     const listItem = this.state.list.map(elm => {
-      const yellow     = elm.images.yellowCar ? <p>譲渡会参加</p> : null
-      const debut      = !elm.status.debut ? <p>近日デビュー</p> : null
-      const profVideo  = elm.images.profVideo ? <p>紹介動画あり</p> : null
+      const sexIcon = elm.status.sex === "女の子" ? "female" : "male" 
+      const yellow = elm.images.yellowCar ? <p>譲渡会参加</p> : null
+      const debut = !elm.status.debut ? <p>近日デビュー</p> : null
+      const profVideo = elm.images.profVideo ? <p>紹介動画あり</p> : null
       const otherVideo = elm.images.otherVideo ? <p>その他動画あり</p> : null
       const shareHouse = elm.status.shareHouse ? <p>シェアハウス入居</p> : null
 
       return (
         <li className="list__item" key={elm.status.num}>
+          <FontAwesomeIcon icon={sexIcon} />
           <div className="list__thumb">
             <img src={`img/${elm.status.num}.jpg`} alt={elm.status.num} />
           </div>
@@ -37,7 +40,6 @@ class ListItem extends React.Component {
             <a href={elm.url} target="_blank">
               No.{elm.status.num}
             </a>
-            <span>{elm.status.sex}</span>
             <p>{elm.status.age}</p>
             {yellow}
             {debut}
