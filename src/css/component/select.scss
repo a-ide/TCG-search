@@ -1,0 +1,8 @@
+.c-select {
+  display: flex;
+  
+  > select {
+    border-radius: 0;
+    width: 100%;
+  }
+}

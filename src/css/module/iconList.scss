@@ -1,0 +1,92 @@
+.iconList {
+  padding: 0 12px;
+
+  @include media($pc) {
+    padding: 10px;
+  }
+
+  &__btn {
+    border: 1px solid $gray-light;
+    display: block;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+
+    @include media($pc) {
+      display: none;
+    }
+
+    &:before,
+    &:after {
+      background-color: $gray-light;
+      bottom: 0;
+      content: "";
+      height: 12px;
+      margin: auto;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      width: 3px;
+    }
+
+    &:before {
+      transform: rotate(90deg)
+    }
+
+    &.is-open {
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include media($pc) {
+      display: flex;
+      justify-content: center;
+      max-width: 1000px;
+    }
+
+    &.is-open {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 15px;
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    padding: 8px 10px;
+    width: 50%;
+
+    @include media($pc) {
+      width: auto;
+    }
+
+    & + & {
+      @include media($pc) {
+        border-left: 1px dashed $gray-light;
+      }
+    }
+
+    dt,
+    dd {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    dt {
+      min-width: 20px;
+    }
+    
+    dd {
+      font-size: .9rem;
+    }
+  }
+
+  &__icon {
+    margin-right: 5px;
+  }
+}
