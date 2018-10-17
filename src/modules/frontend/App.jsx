@@ -3,6 +3,7 @@ import request  from 'superagent'
 import Form     from './Form.jsx'
 import CatList from './CatList.jsx'
 import IconList from './IconList.jsx'
+import Modal from './modal'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.originList = []
+    this.modal = new Modal()
     this.filter = this.filter.bind(this)
     this.setFilterValue = this.setFilterValue.bind(this)
     this.state = {
@@ -28,6 +30,7 @@ class App extends React.Component {
 
   async componentWillMount() {
     try {
+      this.modal.init()
       const res = await request.get('./data/catList.json')
         .accept('application/json')
       this.loadedJSON(res)
@@ -96,6 +99,7 @@ class App extends React.Component {
 
   render() {
     this.setHeaderHeight()
+    if (this.state.list.length > 0) this.modal.removeModal()
     return (
       <div>
         <Form
