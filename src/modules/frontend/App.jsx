@@ -104,17 +104,25 @@ class App extends React.Component {
     
     return (
       <div>
-        <Form
-          options={this.state.options}
-          filter={this.filter}
-          setFilterValue={this.setFilterValue} />
-        {noListMsg}
-        <ListItem
-          listData={this.state.list} />
+        <header id="js-target-header" className="l-header">
+          <h1 className="l-header__logo">
+            <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
+            <span>TCG Search</span>
+            <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
+          </h1>
+          <Form
+            options={this.state.options}
+            filter={this.filter}
+            setFilterValue={this.setFilterValue} />
           <div className="l-header__iconList">
             <IconList />
           </div>
+        </header>
+        <div id="js-target-content" className="l-content">
+          <CatList
+            listData={this.state.list} />
           {noListMsg}
+        </div>
       </div>
     )
   }
