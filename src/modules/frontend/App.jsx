@@ -100,6 +100,8 @@ class App extends React.Component {
   render() {
     this.setHeaderHeight()
     if (this.state.list.length > 0) this.modal.removeModal()
+    const noListMsg = this.state.list === [] ? <p>条件に該当するにゃんこはいません。</p> : null
+    
     return (
       <div>
         <Form
@@ -112,6 +114,7 @@ class App extends React.Component {
           <div className="l-header__iconList">
             <IconList />
           </div>
+          {noListMsg}
       </div>
     )
   }
