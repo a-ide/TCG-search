@@ -1,4 +1,4 @@
-const displayToggle = (target) => {
+const DisplayToggle = (target) => {
   document.getElementById(target)
     .addEventListener('click', (e) => {
       e.target.classList.toggle('is-open')
@@ -6,4 +6,4 @@ const displayToggle = (target) => {
     })
 }
 
-export default displayToggle
+export default DisplayToggle
