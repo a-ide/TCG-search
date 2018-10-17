@@ -3,9 +3,11 @@ import request  from 'superagent'
 import Form     from './Form.jsx'
 import CatList from './CatList.jsx'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons'
+import { faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-library.add(faFemale, faMale)
+// font awesome のアイコンを利用
+library.add(faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake)
 
 class App extends React.Component {
   constructor(props) {
