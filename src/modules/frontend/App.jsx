@@ -1,7 +1,7 @@
 import React    from 'react'
 import request  from 'superagent'
 import Form     from './Form.jsx'
-import ListItem from './ListItem.jsx'
+import CatList from './CatList.jsx'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons'
 
