@@ -1,4 +1,4 @@
-import React      from 'react'
+import React from 'react'
 import SelectItem from './SelectItem.jsx';
 
 class Form extends React.Component {
