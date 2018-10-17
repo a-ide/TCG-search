@@ -86,9 +86,16 @@ class App extends React.Component {
     this.setState({ list: newArray })
   }
 
-  render() {
-    const noListMsg = this.state.list.length === 0 ? <p>条件に該当するにゃんこはいません</p> : null
+  setHeaderHeight() {
+    const height = document.getElementById('js-target-header')
+    if (height !== null) {
+      const newHeight = height.offsetHeight + 30
+      document.getElementById('js-target-content').style.paddingTop = `${newHeight}px`
+    }
+  }
 
+  render() {
+    this.setHeaderHeight()
     return (
       <div>
         <Form
