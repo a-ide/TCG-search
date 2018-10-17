@@ -1,12 +1,21 @@
-import React    from 'react'
-import request  from 'superagent'
-import Form     from './Form.jsx'
-import ListItem from './ListItem.jsx'
+import React from 'react'
+import request from 'superagent'
+import Form from './Form.jsx'
+import CatList from './CatList.jsx'
+import IconList from './IconList.jsx'
+import Modal from './Modal'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+// font awesome のアイコンを利用
+library.add(faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake)
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.originList = []
+    this.modal = new Modal()
     this.filter = this.filter.bind(this)
     this.setFilterValue = this.setFilterValue.bind(this)
     this.state = {
@@ -21,6 +30,7 @@ class App extends React.Component {
 
   async componentWillMount() {
     try {
+      this.modal.init()
       const res = await request.get('./data/catList.json')
         .accept('application/json')
       this.loadedJSON(res)
@@ -79,18 +89,40 @@ class App extends React.Component {
     this.setState({ list: newArray })
   }
 
-  render() {
-    const noListMsg = this.state.list.length === 0 ? <p>条件に該当するにゃんこはいません</p> : null
+  setHeaderHeight() {
+    const height = document.getElementById('js-target-header')
+    if (height !== null) {
+      const newHeight = height.offsetHeight + 30
+      document.getElementById('js-target-content').style.paddingTop = `${newHeight}px`
+    }
+  }
 
+  render() {
+    this.setHeaderHeight()
+    if (this.state.list.length > 0) this.modal.removeModal()
+    const noListMsg = this.state.list === [] ? <p>条件に該当するにゃんこはいません。</p> : null
+    
     return (
       <div>
-        <Form
-          options={this.state.options}
-          filter={this.filter}
-          setFilterValue={this.setFilterValue} />
-        {noListMsg}
-        <ListItem
-          listData={this.state.list} />
+        <header id="js-target-header" className="l-header">
+          <h1 className="l-header__logo">
+            <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
+            <span>TCG Search</span>
+            <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
+          </h1>
+          <Form
+            options={this.state.options}
+            filter={this.filter}
+            setFilterValue={this.setFilterValue} />
+          <div className="l-header__iconList">
+            <IconList />
+          </div>
+        </header>
+        <div id="js-target-content" className="l-content">
+          <CatList
+            listData={this.state.list} />
+          {noListMsg}
+        </div>
       </div>
     )
   }

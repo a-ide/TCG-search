@@ -36,11 +36,17 @@ class SelectItem extends React.Component {
     }
 
     return(
-      <select name={this.name}
-        onChange={e => this.changeValue(e)}>
-        <option>選択してください</option>
-        {optionList}
-      </select>
+      <div className="siimple-grid-col siimple-grid-col--xs-12 siimple-grid-col--md-6 siimple-grid-col--xl-4">
+        <div className="c-select">
+          <label className="siimple-label">{this.props.label}</label>
+          <select name={this.name}
+            onChange={e => this.changeValue(e)}
+            className="siimple-select">
+            <option>選択してください</option>
+            {optionList}
+          </select>
+        </div>
+      </div>
     )
   }
 }

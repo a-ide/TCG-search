@@ -1,0 +1,148 @@
+.catList {
+  @include media($tb) {
+    display: flex;
+    flex-wrap: wrap
+  }
+
+  &__item {
+    background-color: $white;
+    border: 1px solid $gray-base;
+    box-sizing: border-box;
+    position: relative;
+
+    @include media($tb) {
+      margin: 0 1.5%;
+      width: (94% / 2);
+    }
+
+    @include media($pc) {
+      transition: all 0.2s ease-in-out;
+      width: (91% / 3);
+    }
+
+    &:hover {
+      @include media($pc) {
+        box-shadow: 0px 3px 0px 0px $gray-light;
+        transform: translateY(-3px);
+      }
+    }
+
+    & + & {
+      margin-top: 30px;
+
+      @include media($tb) {
+        margin-top: 0;
+      }
+    }
+
+    &:nth-child(n+3) {
+      @include media($tb) {
+        margin-top: 30px;
+      }
+
+      @include media($pc) {
+        margin-top: 0;
+      }
+    }
+
+    &:nth-child(n+4) {
+      @include media($pc) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__thumb {
+    text-align: center;
+    
+    > img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  $baseSize: 50px;
+
+  &__gender {
+    background-color: $white;
+    border: 1px dashed $gray-base;
+    border-radius: 50%;
+    box-sizing: border-box;
+    color: $white;
+    height: $baseSize;
+    padding: 8px;
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    top: -15px;
+    width: $baseSize;
+
+    > span {
+      display: block;
+      line-height: 1.2;
+      text-align: center;
+    }
+  }
+
+  &__label {
+    align-items: center;
+    color: $white;
+    background: lighten($main-color, 17%);
+    border: 1px solid darken($main-color, 10%);
+    bottom: 4px;
+    box-shadow: 0px 1px 3px $gray-light;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    left: -5px;
+    padding: 10px 5px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+
+    &:before,
+    &:after {
+      border-bottom: 5px solid $main-color;
+      content: "";
+      top: -6px;
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+      z-index: 5;
+    }
+
+    &:before {
+      border-left: 5px solid transparent;
+      left: -1px;
+    }
+
+    &:after {
+      border-right: 5px solid transparent;
+      right: 0;
+    }
+  }
+
+  &__num {
+    padding-left: 5px;
+    &:after {
+      content: "："
+    }
+  }
+
+  &__status {
+    > span {
+      display: inline-block;
+
+      & + span {
+        margin-left: 8px;
+      }
+
+      > i {
+        background-color: $white;
+        border-radius: 3px;
+        padding: 3px 5px 2px;
+      }
+    }
+  }
+}

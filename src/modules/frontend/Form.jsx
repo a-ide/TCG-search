@@ -1,4 +1,4 @@
-import React      from 'react'
+import React from 'react'
 import SelectItem from './SelectItem.jsx';
 
 class Form extends React.Component {
@@ -28,18 +28,20 @@ class Form extends React.Component {
     }
 
     return(
-      <form>
+      <form className="siimple-grid c-form">
         <SelectItem
-          name='age'
+          name="age"
           options={array[0]}
           filter={this.props.filter}
-          value='選択してください'
+          value="選択してください"
+          label="年齢"
           setFilterValue={this.props.setFilterValue} />
         <SelectItem
-          name='sex'
+          name="sex"
           options={array[1]}
           filter={this.props.filter}
-          value='選択してください'
+          value="選択してください"
+          label="性別"
           setFilterValue={this.props.setFilterValue} />
       </form>
     )
