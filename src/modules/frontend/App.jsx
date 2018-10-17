@@ -2,6 +2,7 @@ import React    from 'react'
 import request  from 'superagent'
 import Form     from './Form.jsx'
 import CatList from './CatList.jsx'
+import IconList from './IconList.jsx'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -97,6 +98,9 @@ class App extends React.Component {
         {noListMsg}
         <ListItem
           listData={this.state.list} />
+          <div className="l-header__iconList">
+            <IconList />
+          </div>
       </div>
     )
   }
