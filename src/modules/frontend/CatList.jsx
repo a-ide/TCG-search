@@ -23,12 +23,12 @@ class CatList extends React.Component {
 
     // 読み込んだデータからアイテムを作る
     const listItem = this.state.list.map(elm => {
-      const sex = elm.status.sex === "女の子" ? <span><i><FontAwesomeIcon icon="venus" size="2x" color="#E19CD2" /></i></span> : <span><i><FontAwesomeIcon icon="mars" size="2x" color="#4CBFDA" /></i></span>
-      const yellow = elm.status.yellowCar ? <span><i><FontAwesomeIcon icon="car-side" color="#F7AF31" /></i></span> : null
-      const debut = !elm.status.debut ? <span><i><FontAwesomeIcon icon="birthday-cake" color="#EE411E" /></i></span> : null
-      const profVideo = elm.status.profVideo ? <span><i><FontAwesomeIcon icon="video" color="#E2E448" /></i></span> : null
-      const otherVideo = elm.status.otherVideo ? <span><i><FontAwesomeIcon icon="video" color="#174395" /></i></span> : null
-      const shareHouse = elm.status.shareHouse ? <span><i><FontAwesomeIcon icon="home" color="#C23D86" /></i></span> : null
+      const sex = elm.status.sex === "女の子" ? <span className="catList__icon"><i><FontAwesomeIcon icon="venus" size="2x" color="#E19CD2" /></i></span> : <span><i><FontAwesomeIcon icon="mars" size="2x" color="#4CBFDA" /></i></span>
+      const yellow = elm.status.yellowCar ? <span className="catList__icon"><i><FontAwesomeIcon icon="car-side" color="#F7AF31" /></i></span> : null
+      const debut = !elm.status.debut ? <span className="catList__icon"><i><FontAwesomeIcon icon="birthday-cake" color="#EE411E" /></i></span> : null
+      const profVideo = elm.status.profVideo ? <span className="catList__icon"><i><FontAwesomeIcon icon="video" color="#E2E448" /></i></span> : null
+      const otherVideo = elm.status.otherVideo ? <span className="catList__icon"><i><FontAwesomeIcon icon="video" color="#174395" /></i></span> : null
+      const shareHouse = elm.status.shareHouse ? <span className="catList__icon"><i><FontAwesomeIcon icon="home" color="#C23D86" /></i></span> : null
 
       return (
         <li className="catList__item" key={elm.status.num}>
@@ -39,14 +39,16 @@ class CatList extends React.Component {
             </figure>
             <div className="catList__label">
               <p className="catList__num">No.{elm.status.num}</p>
-              <p className="catList__status">
-                <span>{elm.status.age}</span>
-                {yellow}
-                {debut}
-                {profVideo}
-                {otherVideo}
-                {shareHouse}
-              </p>
+              <div>
+                <p className="catList__status">
+                  <span>{elm.status.age}</span>
+                  {yellow}
+                  {debut}
+                  {profVideo}
+                  {otherVideo}
+                  {shareHouse}
+                </p>
+              </div>
             </div>
           </a>
         </li>

@@ -98,6 +98,7 @@
     display: flex;
     font-family: 'Roboto', sans-serif;
     left: -5px;
+    min-height: 21px;
     padding: 10px 5px;
     position: absolute;
     width: 100%;
@@ -134,22 +135,29 @@
   }
 
   &__status {
+    align-items: center;
+    display: flex;
+
     > span {
-      display: inline-block;
+      display: block;
 
       & + span {
         margin-left: 8px;
       }
+    }
+  }
 
-      > i {
-        background-color: $white;
-        border-radius: 3px;
-        box-sizing: border-box;
-        display: inline-block;
-        padding: 3px 3px 1px;
-        text-align: center;
-        width: 25px;
-      }
+  &__icon {
+    margin-top: -2px;
+    
+    > i {
+      background-color: $white;
+      border-radius: 3px;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 3px 3px 1px;
+      text-align: center;
+      width: 25px;
     }
   }
 }
