@@ -23,7 +23,7 @@ class CatList extends React.Component {
 
     // 読み込んだデータからアイテムを作る
     const listItem = this.state.list.map(elm => {
-      const sex = elm.status.sex === "女の子" ? <span><i><FontAwesomeIcon icon="female" size="2x" color="#E19CD2" /></i></span> : <span><i><FontAwesomeIcon icon="male" size="2x" color="#4CBFDA" /></i></span>
+      const sex = elm.status.sex === "女の子" ? <span><i><FontAwesomeIcon icon="venus" size="2x" color="#E19CD2" /></i></span> : <span><i><FontAwesomeIcon icon="mars" size="2x" color="#4CBFDA" /></i></span>
       const yellow = elm.status.yellowCar ? <span><i><FontAwesomeIcon icon="car-side" color="#F7AF31" /></i></span> : null
       const debut = !elm.status.debut ? <span><i><FontAwesomeIcon icon="birthday-cake" color="#EE411E" /></i></span> : null
       const profVideo = elm.status.profVideo ? <span><i><FontAwesomeIcon icon="video" color="#E2E448" /></i></span> : null

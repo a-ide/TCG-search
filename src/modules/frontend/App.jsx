@@ -5,11 +5,11 @@ import CatList from './CatList.jsx'
 import IconList from './IconList.jsx'
 import Modal from './Modal'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
+import { faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // font awesome のアイコンを利用
-library.add(faFemale, faMale, faVideo, faHome, faPaw, faCarSide, faBirthdayCake)
+library.add(faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake)
 
 class App extends React.Component {
   constructor(props) {
