@@ -4,7 +4,7 @@
   color: $white;
   display: flex;
   font-family: 'Roboto', sans-serif;
-  font-size: 5rem;
+  font-size: 2rem;
   height: 100%;
   justify-content: center;
   left: 0;
@@ -13,4 +13,8 @@
   top: 0;
   width: 100%;
   z-index: 150;
+
+  @include media($pc) {
+    font-size: 5rem;
+  }
 }
