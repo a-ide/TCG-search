@@ -1,0 +1,48 @@
+.c-selectItem {
+  align-items: center;
+  display: flex;
+  font-size: .8rem;
+  position: relative;
+
+  & + & {
+    margin-top: 10px;
+
+    @include media($pc) {
+      margin-left: 30px;
+      margin-top: 0;
+    }
+  }
+
+  &:before {
+    border-bottom: 2px solid $gray-base;
+    border-right: 2px solid $gray-base;
+    bottom: 0;
+    content: "";
+    height: 7px;
+    margin: auto;
+    pointer-events: none;
+    position: absolute;
+    right: 12px;
+    top: 0;
+    transform: rotate(45deg);
+    width: 7px;
+  }
+
+  > label {
+    width: 3em;
+  }
+  
+  > select {
+    -webkit-appearance: none;
+    background-color: lighten($sub-color, 15%);
+    border-radius: 0;
+    font-size: .8rem;
+    padding: 8px 8px 12px;
+    width: calc(100% - 2em);
+
+    @include media($pc) {
+      padding: 8px 10px;
+      width: 200px;
+    }
+  }
+}
