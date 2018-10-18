@@ -72,5 +72,6 @@ body {
   @include media($pc) {
     margin: auto;
     max-width: 1000px;
+    padding-bottom: 100px;
   }
 }
