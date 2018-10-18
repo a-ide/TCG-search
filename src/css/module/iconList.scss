@@ -1,69 +1,79 @@
 .iconList {
-  &__btn {
-    border: 1px solid $gray-light;
-    display: block;
-    font-size: .8rem;
-    padding: 10px;
-    position: relative;
-    text-align: center;
+  @include media($pc) {
+    margin: auto;
+    max-width: 1000px;
+  }
+
+  &__trigger {
+    padding: 15px;
+    text-align: right;
 
     @include media($pc) {
       display: none;
     }
 
-    &:before,
-    &:after {
-      background-color: $gray-light;
-      bottom: 0;
-      content: "";
-      height: 12px;
-      margin: auto;
-      position: absolute;
-      right: 15px;
-      top: 0;
-      width: 3px;
-    }
-
-    &:before {
-      transform: rotate(90deg)
-    }
-
     &.is-open {
+      &:before,
       &:after {
-        content: none;
+        background-color: $gray-base;
+        bottom: 0;
+        content: "";
+        height: 20px;
+        position: absolute;
+        right: 21px;
+        top: 14px;
+        width: 3px;
       }
+
+      &:before {
+        transform: rotate(45deg)
+      }
+
+      &:after {
+        transform: rotate(-45deg)
+      }
+
+      > svg {
+        opacity: 0;
+      }
+    }
+
+    > svg {
+      pointer-events: none;
     }
   }
 
   &__list {
+    background-color: $white;
     display: none;
+    padding: 15px;
+    border: solid 3px $gray-base;
 
     @include media($pc) {
+      background-color: transparent;
+      border: none;
       display: flex;
-      justify-content: center;
-      max-width: 1000px;
+      padding: 10px 0;
     }
 
     &.is-open {
-      display: flex;
-      flex-wrap: wrap;
-      padding-top: 15px;
+      display: block;
     }
   }
 
   &__item {
     box-sizing: border-box;
-    padding: 8px 0;
-    width: 50%;
 
     @include media($pc) {
       padding: 5px 15px;
-      width: auto;
     }
 
     & + & {
+      margin-top: 10px;
+
       @include media($pc) {
         border-left: 1px dashed $gray-light;
+        margin-top: 0;
       }
     }
 
@@ -78,7 +88,7 @@
     }
     
     dd {
-      font-size: .8rem;
+      font-size: .9rem;
     }
   }
 

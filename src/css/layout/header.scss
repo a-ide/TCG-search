@@ -12,12 +12,19 @@
     padding-bottom: 0;
   }
 
+  &__inner {
+    border-bottom: dashed 1px currentColor;
+    padding: 10px 10px 8px;
+
+    @include media($pc) {
+      border-bottom: none;
+    }
+  }
+
   &__logo {
     color: $main-color;
-    border-bottom: dashed 1px currentColor;
     font-family: 'Cabin Sketch', cursive;
     font-size: 1.6rem;
-    padding: 10px 10px 8px;
     text-align: center;
     
     @include media($pc) {
@@ -36,15 +43,18 @@
   }
 
   &__iconList {
-    padding: 0 15px 10px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 150;
 
     @include media($pc) {
       background-color: lighten($sub-color, 20%);
       border-top: 3px solid $main-color;
       bottom: 0;
       left: 0;
-      padding-top: 10px;
       position: fixed;
+      top: auto;
       width: 100%;
     }
   }

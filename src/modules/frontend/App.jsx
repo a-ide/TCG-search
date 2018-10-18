@@ -5,11 +5,11 @@ import CatList from './CatList.jsx'
 import IconList from './IconList.jsx'
 import Modal from './Modal'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
+import { faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // font awesome のアイコンを利用
-library.add(faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake)
+library.add(faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake, faQuestionCircle)
 
 class App extends React.Component {
   constructor(props) {
@@ -105,18 +105,20 @@ class App extends React.Component {
     return (
       <div>
         <header id="js-target-header" className="l-header">
-          <h1 className="l-header__logo">
-            <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
-            <span>TCG Search</span>
-            <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
-          </h1>
+          <div className="l-header__inner">
+            <h1 className="l-header__logo">
+              <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
+              <span>TCG Search</span>
+              <i className="c-icon"><FontAwesomeIcon icon="paw" /></i>
+            </h1>
+            <div className="l-header__iconList">
+              <IconList />
+            </div>
+          </div>
           <Form
             options={this.state.options}
             filter={this.filter}
             setFilterValue={this.setFilterValue} />
-          <div className="l-header__iconList">
-            <IconList />
-          </div>
         </header>
         <div id="js-target-content" className="l-main">
           <div className="l-main__inner">
