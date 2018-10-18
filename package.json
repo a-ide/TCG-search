@@ -8,7 +8,7 @@
     "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
     "build:back": "npx webpack --config ./webpack-back.config.js && npm run clean:img && node dist/sub.js",
     "build:front": "npx webpack --config ./webpack-front.config.js",
-    "start": "npm run build:back && webpack-dev-server --config ./webpack-front.config.js",
+    "start": "webpack-dev-server --config ./webpack-front.config.js",
     "build": "npm run build:back && npm run build:front"
   },
   "repository": {
