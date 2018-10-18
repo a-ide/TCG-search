@@ -92,7 +92,7 @@ class App extends React.Component {
   setHeaderHeight() {
     const height = document.getElementById('js-target-header')
     if (height !== null) {
-      const newHeight = height.offsetHeight + 30
+      const newHeight = height.offsetHeight + 10
       document.getElementById('js-target-content').style.paddingTop = `${newHeight}px`
     }
   }
