@@ -14,6 +14,7 @@ $bg-sub-color:  lighten($gray-light, 18%);
   );
   background-size: 30px 30px;
   background-attachment: fixed;
+  min-height: 100vh;
 
   &__inner {
     padding: 15px;
