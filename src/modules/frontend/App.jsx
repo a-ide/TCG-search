@@ -30,7 +30,7 @@ class App extends React.Component {
 
   async componentWillMount() {
     try {
-      this.modal.init()
+      this.modal.addModal()
       const res = await request.get('./data/catList.json')
         .accept('application/json')
       this.loadedJSON(res)
