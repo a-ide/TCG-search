@@ -6,10 +6,10 @@
   "scripts": {
     "lint": "eslint src/**/*.js",
     "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
-    "build:back": "npx webpack --config ./webpack-back.config.js",
+    "build:back": "npx webpack --config ./webpack-back.config.js && npm run clean:img && node dist/sub.js",
     "build:front": "npx webpack --config ./webpack-front.config.js",
-    "start": "npm run build:back && webpack-dev-server --config ./webpack-front.config.js",
-    "check:back": "npm run build:back && npm run clean:img && node dist/sub.js"
+    "start": "webpack-dev-server --config ./webpack-front.config.js",
+    "build": "npm run build:back && npm run build:front"
   },
   "repository": {
     "type": "git",
