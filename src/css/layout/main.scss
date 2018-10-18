@@ -25,4 +25,30 @@ $bg-sub-color:  lighten($gray-light, 18%);
       padding-bottom: 75px;
     }
   }
+
+  &__remark {
+    background-color: $white;
+    border: 3px double $main-color;
+    font-size: .8em;
+    padding: 10px;
+
+    @include media($pc) {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    > a {
+      color: lighten($main-color, 20%);
+
+      @include media($pc) {
+        text-decoration: none;
+      }
+
+      &:hover {
+        @include media($pc) {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }

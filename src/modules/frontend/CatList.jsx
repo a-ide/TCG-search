@@ -54,11 +54,9 @@ class CatList extends React.Component {
     })
 
     return (
-      <div>
-        <ul className="catList">
-          {listItem}
-        </ul>
-      </div>
+      <ul className="catList">
+        {listItem}
+      </ul>
     )
   }
 }

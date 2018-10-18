@@ -92,7 +92,7 @@ class App extends React.Component {
   setHeaderHeight() {
     const height = document.getElementById('js-target-header')
     if (height !== null) {
-      const newHeight = height.offsetHeight + 10
+      const newHeight = height.offsetHeight
       document.getElementById('js-target-content').style.paddingTop = `${newHeight}px`
     }
   }
@@ -122,6 +122,7 @@ class App extends React.Component {
         </header>
         <div id="js-target-content" className="l-main">
           <div className="l-main__inner">
+            <p className="l-main__remark">※画像掲載元：<a href="https://tokyocatguardian.org/" target="_blank">東京キャットガーディアン</a></p>
             <CatList
               listData={this.state.list} />
             {noListMsg}

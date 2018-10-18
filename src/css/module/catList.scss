@@ -1,7 +1,10 @@
 .catList {
+  margin-top: 25px;
+
   @include media($tb) {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin-top: 15px;
   }
 
   &__item {
