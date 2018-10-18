@@ -1,0 +1,27 @@
+$bg-main-color: lighten($gray-light, 16%);
+$bg-sub-color:  lighten($gray-light, 18%);
+
+.l-main {
+  background-image: linear-gradient(
+    -45deg,
+    $bg-main-color 25%,
+    $bg-sub-color 25%,
+    $bg-sub-color 50%,
+    $bg-main-color 50%,
+    $bg-main-color 75%,
+    $bg-sub-color 75%,
+    $bg-sub-color
+  );
+  background-size: 30px 30px;
+  background-attachment: fixed;
+
+  &__inner {
+    padding: 15px;
+  
+    @include media($pc) {
+      margin: auto;
+      max-width: 1000px;
+      padding-bottom: 75px;
+    }
+  }
+}

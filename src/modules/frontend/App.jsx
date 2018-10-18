@@ -118,10 +118,12 @@ class App extends React.Component {
             <IconList />
           </div>
         </header>
-        <div id="js-target-content" className="l-content">
-          <CatList
-            listData={this.state.list} />
-          {noListMsg}
+        <div id="js-target-content" className="l-main">
+          <div className="l-main__inner">
+            <CatList
+              listData={this.state.list} />
+            {noListMsg}
+          </div>
         </div>
       </div>
     )
