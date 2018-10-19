@@ -1,5 +1,8 @@
+const MODE = 'production'
+
 module.exports = {
-  mode: 'development',
+  mode: MODE,
+  devtool: 'source-map',
   target: 'web',
   entry: './src/index.js',
   output: {
@@ -34,8 +37,30 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          {loader: 'css-loader'},
-          {loader: 'sass-loader'}
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: true,
+              minimize: true,
+              importLoaders: 2
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [
+                require('autoprefixer')({ grid: true })
+              ]
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       }
     ]
