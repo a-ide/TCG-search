@@ -16,6 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.originList = []
+    this.total = ''
     this.modal = new Modal()
     this.filter = this.filter.bind(this)
     this.setFilterValue = this.setFilterValue.bind(this)
@@ -46,6 +47,7 @@ class App extends React.Component {
     // 状態を更新
     this.originList = res.body
     this.setState({ list: res.body })
+    this.total = this.state.list.length;
   }
 
   // 猫リストから選択肢を抽出
@@ -124,6 +126,14 @@ class App extends React.Component {
             <CatList
               listData={this.state.list} />
             {noListMsg}
+            <div className="l-main__result">
+              <div className="circle">
+                <p className="circle__inner">
+                  <span>{this.state.list.length}</span>
+                  <span>{this.total}</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

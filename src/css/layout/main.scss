@@ -51,4 +51,16 @@ $bg-sub-color:  lighten($gray-light, 18%);
       }
     }
   }
+
+  &__result {
+    bottom: 10px;
+    position: fixed;
+    right: 10px;
+    z-index: 100;
+
+    @include media($pc) {
+      bottom: 70px;
+      right: 20px;
+    }
+  }
 }
