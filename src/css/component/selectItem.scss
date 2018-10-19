@@ -33,7 +33,7 @@
   }
   
   > select {
-    -webkit-appearance: none;
+    appearance: none;
     background-color: lighten($sub-color, 15%);
     border-radius: 0;
     font-size: .8rem;
