@@ -7,7 +7,7 @@ import readFile      from './readFile'
 const downloadImg = async (list) => {
   const data = await readFile(list)
 
-  JSON.parse(data).map(async item => {
+  JSON.parse(data).list.map(async item => {
     if (item.images.thumb === undefined) {
       return
     }
