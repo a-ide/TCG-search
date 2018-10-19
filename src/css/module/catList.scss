@@ -23,7 +23,7 @@
 
     &:hover {
       @include media($pc) {
-        box-shadow: 0px 3px 0px 0px $gray-light;
+        box-shadow: 0 3px 0 0 $gray-light;
         transform: translateY(-3px);
       }
     }
@@ -92,7 +92,7 @@
     background: lighten($main-color, 17%);
     border: 1px solid darken($main-color, 10%);
     bottom: 4px;
-    box-shadow: 0px 1px 3px $gray-light;
+    box-shadow: 0 1px 3px $gray-light;
     display: flex;
     font-family: 'Roboto', sans-serif;
     left: -5px;
