@@ -95,7 +95,7 @@ class App extends React.Component {
   render() {
     SetHeaderHeight()
     if (this.state.list.length > 0) this.modal.removeModal()
-    const noListMsg = this.state.list === [] ? <p>条件に該当するにゃんこはいません。</p> : null
+    const noListMsg = this.state.list.length === 0 ? <p>条件に該当するにゃんこはいません。</p> : null
     
     return (
       <div>
