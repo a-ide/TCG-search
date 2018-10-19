@@ -16,6 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.originList = []
+    this.lastUpdated = ''
     this.total = ''
     this.modal = new Modal()
     this.filter = this.filter.bind(this)
@@ -45,8 +46,9 @@ class App extends React.Component {
   // データを読み込んだ時
   loadedJSON(res) {
     // 状態を更新
-    this.originList = res.body
-    this.setState({ list: res.body })
+    this.originList = res.body.list
+    this.lastUpdated = res.body.lastUpdated
+    this.setState({ list: res.body.list })
     this.total = this.state.list.length;
   }
 
@@ -122,9 +124,14 @@ class App extends React.Component {
         </header>
         <div id="js-target-content" className="l-main">
           <div className="l-main__inner">
-            <p className="l-main__remark">※画像掲載元：<a href="https://tokyocatguardian.org/" target="_blank">東京キャットガーディアン</a></p>
-            <CatList
-              listData={this.state.list} />
+            <div className="l-main__remark">
+              <p>【最終更新日】{this.lastUpdated}</p>
+              <p>【画像掲載元】<a href="https://tokyocatguardian.org/" target="_blank">東京キャットガーディアン</a></p>
+            </div>
+            <div className="l-main__list">
+              <CatList
+                listData={this.state.list} />
+            </div>
             {noListMsg}
             <div className="l-main__result">
               <div className="circle">

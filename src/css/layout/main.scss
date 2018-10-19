@@ -30,26 +30,40 @@ $bg-sub-color:  lighten($gray-light, 18%);
     background-color: $white;
     border: 3px double $main-color;
     font-size: .8em;
-    padding: 10px;
+    padding: 7px 5px 5px;
 
     @include media($pc) {
-      display: inline-block;
+      display: flex;
       margin: 0 15px;
     }
 
-    > a {
-      color: lighten($main-color, 20%);
+    > p {
+      padding: 5px 0;
 
-      @include media($pc) {
-        text-decoration: none;
+      & + p {
+        @include media($pc) {
+          margin-left: 10px;
+        }
       }
 
-      &:hover {
+      > a {
+        color: lighten($main-color, 20%);
+
         @include media($pc) {
-          text-decoration: underline;
+          text-decoration: none;
+        }
+
+        &:hover {
+          @include media($pc) {
+            text-decoration: underline;
+          }
         }
       }
     }
+  }
+
+  &__list {
+    margin-top: 25px;
   }
 
   &__result {
