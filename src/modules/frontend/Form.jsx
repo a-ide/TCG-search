@@ -28,7 +28,7 @@ class Form extends React.Component {
     }
 
     return(
-      <form className="siimple-grid c-form">
+      <form className="c-form">
         <SelectItem
           name="age"
           options={array[0]}

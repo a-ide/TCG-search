@@ -2,7 +2,6 @@
 External
 *****************/
 @import 'reset-css';
-@import "siimple/scss/_all.scss";
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Roboto');
 
 /*****************
@@ -19,14 +18,16 @@ Mixin
 /*****************
 Layout
 *****************/
-@import './layout/layout.scss';
+@import './layout/header.scss';
+@import './layout/main.scss';
 
 /*****************
 Component
 *****************/
+@import './component/circle.scss';
 @import './component/form.scss';
 @import './component/modal.scss';
-@import './component/select.scss';
+@import './component/selectItem.scss';
 
 /*****************
 Module

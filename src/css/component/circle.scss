@@ -1,0 +1,36 @@
+.circle {
+  align-items: center;
+  background-color: $black;
+  border-radius: 50%;
+  color: $white;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  opacity: .8;
+  padding: 15px;
+  width: 3rem;
+
+  @include media($pc) {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  &__inner {
+    font-size: 1.1rem;
+    text-align: center;
+
+    @include media($pc) {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+    }
+
+    > span {
+      display: block;
+      padding: 5px 0;
+
+      & + span {
+        border-top: solid 1px currentColor;
+      }
+    }
+  }
+}

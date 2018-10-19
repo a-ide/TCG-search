@@ -1,7 +1,8 @@
 .catList {
+
   @include media($tb) {
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
   }
 
   &__item {
@@ -22,7 +23,7 @@
 
     &:hover {
       @include media($pc) {
-        box-shadow: 0px 3px 0px 0px $gray-light;
+        box-shadow: 0 3px 0 0 $gray-light;
         transform: translateY(-3px);
       }
     }
@@ -91,10 +92,11 @@
     background: lighten($main-color, 17%);
     border: 1px solid darken($main-color, 10%);
     bottom: 4px;
-    box-shadow: 0px 1px 3px $gray-light;
+    box-shadow: 0 1px 3px $gray-light;
     display: flex;
     font-family: 'Roboto', sans-serif;
     left: -5px;
+    min-height: 21px;
     padding: 10px 5px;
     position: absolute;
     width: 100%;
@@ -131,18 +133,29 @@
   }
 
   &__status {
+    align-items: center;
+    display: flex;
+
     > span {
-      display: inline-block;
+      display: block;
 
       & + span {
         margin-left: 8px;
       }
+    }
+  }
 
-      > i {
-        background-color: $white;
-        border-radius: 3px;
-        padding: 3px 5px 2px;
-      }
+  &__icon {
+    margin-top: -2px;
+    
+    > i {
+      background-color: $white;
+      border-radius: 3px;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 3px 3px 1px;
+      text-align: center;
+      width: 25px;
     }
   }
 }

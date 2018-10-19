@@ -24,7 +24,9 @@ class IconList extends React.Component {
     })
     return(
       <div className="iconList">
-        <span id="js-toggle-trigger" className="iconList__btn">アイコンの説明を見る</span>
+        <div id="js-toggle-trigger" className="iconList__trigger">
+          <FontAwesomeIcon icon="question-circle" />
+        </div>
         <div className="iconList__list">
           {listItem}
         </div>

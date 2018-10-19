@@ -6,3 +6,4 @@ import './css/style.scss'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 DisplayToggle('js-toggle-trigger')
+DisplayToggle('js-toggle-search')
