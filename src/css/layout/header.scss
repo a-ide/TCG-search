@@ -1,20 +1,24 @@
 .l-header {
-  background-color: $white;
-  box-shadow: 0px 1px 3px $gray-light;
   box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  order: 0;
   position: fixed;
   width: 100%;
   z-index: 100;
 
   @include media($pc) {
     align-items: center;
+    box-shadow: 0px 1px 3px $gray-light;
     display: flex;
     padding-bottom: 0;
   }
 
   &__inner {
+    background-color: $white;
     border-bottom: dashed 1px currentColor;
     padding: 10px 10px 8px;
+    width: 100%;
 
     @include media($pc) {
       border-bottom: none;
@@ -56,6 +60,44 @@
       position: fixed;
       top: auto;
       width: 100%;
+    }
+  }
+
+  &__search {
+    display: table;
+    margin-left: auto;
+    margin-top: -3px;
+    order: 2;
+    padding-right: 10px;
+
+    &.is-open {
+      margin-top: 0;
+    }
+
+    > span {
+      background-color: $white;
+      border: 3px solid $gray-base;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      display: inline-block;
+      padding: 10px;
+    }
+
+    > span,
+    > svg {
+      pointer-events: none;
+    }
+  }
+
+  &__form {
+    background-color: $white;
+    border-bottom: solid 3px #777;
+    display: none;
+    order: 1;
+    width: 100%;
+
+    &.is-open {
+      display: block;
     }
   }
 }
