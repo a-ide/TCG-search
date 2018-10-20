@@ -1,16 +1,36 @@
 import React from 'react'
 import request from 'superagent'
-import Form from './Form.jsx'
-import CatList from './CatList.jsx'
-import IconList from './IconList.jsx'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faVenus,
+  faMars,
+  faVideo,
+  faHome,
+  faPaw,
+  faCarSide,
+  faBirthdayCake,
+  faQuestionCircle,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Form from './Form'
+import CatList from './CatList'
+import IconList from './IconList'
 import Modal from './Modal'
 import SetHeaderHeight from './SetHeaderHeight'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake, faQuestionCircle, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // font awesome のアイコンを利用
-library.add(faVenus, faMars, faVideo, faHome, faPaw, faCarSide, faBirthdayCake, faQuestionCircle, faSearch)
+library.add(
+  faVenus,
+  faMars,
+  faVideo,
+  faHome,
+  faPaw,
+  faCarSide,
+  faBirthdayCake,
+  faQuestionCircle,
+  faSearch,
+)
 
 class App extends React.Component {
   constructor(props) {
@@ -26,8 +46,8 @@ class App extends React.Component {
       options: [],
       filterBy: {
         age: '選択してください',
-        sex: '選択してください'
-      }
+        sex: '選択してください',
+      },
     }
   }
 
@@ -43,26 +63,17 @@ class App extends React.Component {
     }
   }
 
-  // データを読み込んだ時
-  loadedJSON(res) {
-    // 状態を更新
-    this.originList = res.body.list
-    this.lastUpdated = res.body.lastUpdated
-    this.setState({ list: res.body.list })
-    this.total = this.state.list.length;
-  }
-
   // 猫リストから選択肢を抽出
   setOption(keys) {
-    let newArray = []
+    const newArray = []
     const condition = Object.keys(keys)
 
     condition.map(key => {
       const group = this.state.list.map(e => e.status[key])
       const result = group.filter((value, index, array) => {
-        return array.indexOf( value ) === index;
+        return array.indexOf(value) === index
       })
-      newArray.push(result)
+      return newArray.push(result)
     })
 
     this.setState({ options: newArray })
@@ -75,6 +86,15 @@ class App extends React.Component {
     newObj[key] = value
     this.setState({ filterBy: newObj })
     return newObj
+  }
+
+  // データを読み込んだ時
+  loadedJSON(res) {
+    // 状態を更新
+    this.originList = res.body.list
+    this.lastUpdated = res.body.lastUpdated
+    this.setState({ list: res.body.list })
+    this.total = this.state.list.length
   }
 
   // filterBy を元にリストを再生成
@@ -90,7 +110,7 @@ class App extends React.Component {
       }
       return true
     })
-    
+
     this.setState({ list: newArray })
   }
 
@@ -98,7 +118,7 @@ class App extends React.Component {
     SetHeaderHeight()
     if (this.state.list.length > 0) this.modal.removeModal()
     const noListMsg = this.state.list.length === 0 ? <p>条件に該当するにゃんこはいません。</p> : null
-    
+
     return (
       <div>
         <header id="js-target-header" className="l-header">
@@ -119,18 +139,24 @@ class App extends React.Component {
             <Form
               options={this.state.options}
               filter={this.filter}
-              setFilterValue={this.setFilterValue} />
+              setFilterValue={this.setFilterValue}
+            />
           </div>
         </header>
         <div id="js-target-content" className="l-main">
           <div className="l-main__inner">
             <div className="l-main__remark">
-              <p>【最終更新日】{this.lastUpdated}</p>
-              <p>【画像掲載元】<a href="https://tokyocatguardian.org/" target="_blank">東京キャットガーディアン</a></p>
+              <p>
+                【最終更新日】
+                {this.lastUpdated}
+              </p>
+              <p>
+                【画像掲載元】
+                <a href="https://tokyocatguardian.org/" target="_blank" rel="noopener noreferrer">東京キャットガーディアン</a>
+              </p>
             </div>
             <div className="l-main__list">
-              <CatList
-                listData={this.state.list} />
+              <CatList listData={this.state.list} />
             </div>
             {noListMsg}
             <div className="l-main__result">

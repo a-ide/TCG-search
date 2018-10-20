@@ -5,11 +5,11 @@ class IconList extends React.Component {
   constructor(props) {
     super(props)
     this.iconList = [
-      { icon: "car-side", name: "譲渡会参加予定", color: "#F7AF31", link: "https://tokyocatguardian.org/yellow_car/" },
-      { icon: "birthday-cake", name: "近日デビュー", color: "#EE411E" },
-      { icon: "video", name: "紹介動画有り", color: "#E2E448" },
-      { icon: "video", name: "その他の動画有り", color: "#174395" },
-      { icon: "home", name: "シェアハウス入居", color: "#C23D86" }
+      { icon: 'car-side', name: '譲渡会参加予定', color: '#F7AF31' },
+      { icon: 'birthday-cake', name: '近日デビュー', color: '#EE411E' },
+      { icon: 'video', name: '紹介動画有り', color: '#E2E448' },
+      { icon: 'video', name: 'その他の動画有り', color: '#174395' },
+      { icon: 'home', name: 'シェアハウス入居', color: '#C23D86' },
     ]
   }
 
@@ -22,7 +22,7 @@ class IconList extends React.Component {
         </dl>
       )
     })
-    return(
+    return (
       <div className="iconList">
         <div id="js-toggle-trigger" className="iconList__trigger">
           <FontAwesomeIcon icon="question-circle" />
