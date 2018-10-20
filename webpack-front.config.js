@@ -4,7 +4,10 @@ module.exports = {
   mode: MODE,
   devtool: 'source-map',
   target: 'web',
-  entry: './src/index.js',
+  "performance": {
+    hints: false
+  },
+  entry: './src/index.jsx',
   output: {
     filename: 'main.js'
   },
@@ -17,22 +20,25 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                "env",
-                {
-                  "targets": {
-                    "node": "current"
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  "env",
+                  {
+                    "targets": {
+                      "node": "current"
+                    }
                   }
-                }
-              ],
-              'react'
-            ]
-          }
-        }
+                ],
+                'react'
+              ]
+            }
+          },
+          {loader: 'eslint-loader'}
+        ]
       }, {
         test: /\.scss$/,
         use: [
@@ -64,5 +70,8 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   }
 }
