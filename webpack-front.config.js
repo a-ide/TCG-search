@@ -1,4 +1,5 @@
 const MODE = 'production'
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   mode: MODE,
@@ -73,5 +74,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-  }
+  },
+  plugins: [
+    new StyleLintPlugin(),
+  ],
 }
