@@ -13,7 +13,7 @@
     }
   }
 
-  &:before {
+  &::before {
     border-bottom: 2px solid $gray-base;
     border-right: 2px solid $gray-base;
     bottom: 0;
@@ -35,7 +35,7 @@
       display: inline-block;
       width: 3em;
     }
-  
+
     > select {
       appearance: none;
       background-color: lighten($sub-color, 15%);
@@ -43,7 +43,7 @@
       font-size: .8rem;
       padding: 8px 8px 12px;
       width: calc(100% - 3em);
-  
+
       @include media($pc) {
         padding: 8px 10px;
         width: 200px;

@@ -12,9 +12,13 @@
       display: none;
     }
 
+    > svg {
+      pointer-events: none;
+    }
+
     &.is-open {
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         background-color: $gray-base;
         bottom: 0;
         content: "";
@@ -25,21 +29,17 @@
         width: 3px;
       }
 
-      &:before {
-        transform: rotate(45deg)
+      &::before {
+        transform: rotate(45deg);
       }
 
-      &:after {
-        transform: rotate(-45deg)
+      &::after {
+        transform: rotate(-45deg);
       }
 
       > svg {
         opacity: 0;
       }
-    }
-
-    > svg {
-      pointer-events: none;
     }
   }
 
@@ -86,7 +86,7 @@
     dt {
       min-width: 20px;
     }
-    
+
     dd {
       font-size: .9rem;
     }

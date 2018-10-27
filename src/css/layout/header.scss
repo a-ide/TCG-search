@@ -32,7 +32,7 @@
     font-family: 'Cabin Sketch', cursive;
     font-size: 1.6rem;
     text-align: center;
-    
+
     @include media($pc) {
       border-bottom: none;
       border-right: dashed 1px currentColor;
