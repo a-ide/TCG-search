@@ -1,22 +1,22 @@
-import React from 'react'
-import SelectItem from './SelectItem'
+import React from "react";
+import SelectItem from "./SelectItem";
 
 class Form extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      optionGroup: props.options,
-    }
+      optionGroup: props.options
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ optionGroup: nextProps })
+    this.setState({ optionGroup: nextProps });
   }
 
   render() {
-    const optionGroup = this.state.optionGroup.options
-    let array = []
-    if (optionGroup !== undefined && optionGroup !== []) array = optionGroup
+    const optionGroup = this.state.optionGroup.options;
+    let array = [];
+    if (optionGroup !== undefined && optionGroup !== []) array = optionGroup;
 
     return (
       <form className="c-form">
@@ -37,8 +37,8 @@ class Form extends React.Component {
           setFilterValue={this.props.setFilterValue}
         />
       </form>
-    )
+    );
   }
 }
 
-export default Form
+export default Form;

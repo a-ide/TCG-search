@@ -1,34 +1,37 @@
-import React from 'react'
+import React from "react";
 
 class SelectItem extends React.Component {
   constructor(props) {
-    super(props)
-    this.name = props.name
+    super(props);
+    this.name = props.name;
     this.state = {
-      list: props.options,
-    }
+      list: props.options
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ list: nextProps })
+    this.setState({ list: nextProps });
   }
 
   // セレクトボックスの値が変化した時、value を変更
   changeValue(e) {
-    const currentCondition = this.props.setFilterValue(e.target.name, e.target.value)
-    this.props.filter(currentCondition)
+    const currentCondition = this.props.setFilterValue(
+      e.target.name,
+      e.target.value
+    );
+    this.props.filter(currentCondition);
   }
 
   render() {
-    let optionList
+    let optionList;
 
     if (this.state.list !== undefined) {
       if (this.state.list.options !== undefined) {
-        optionList = this.state.list.options.map(value => {
-          return (
-            <option key={value} option={value} value={value}>{value}</option>
-          )
-        })
+        optionList = this.state.list.options.map(value => (
+          <option key={value} option={value} value={value}>
+            {value}
+          </option>
+        ));
       }
     }
 
@@ -46,8 +49,8 @@ class SelectItem extends React.Component {
           </select>
         </label>
       </div>
-    )
+    );
   }
 }
 
-export default SelectItem
+export default SelectItem;

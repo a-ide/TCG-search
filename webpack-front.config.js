@@ -1,19 +1,19 @@
-const MODE = 'production'
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const MODE = "production";
 
 module.exports = {
   mode: MODE,
-  devtool: 'source-map',
-  target: 'web',
-  "performance": {
+  devtool: "source-map",
+  target: "web",
+  performance: {
     hints: false
   },
-  entry: './src/index.jsx',
+  entry: "./src/index.jsx",
   output: {
-    filename: 'main.js'
+    filename: "main.js"
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: "dist",
     open: true,
     port: 3000
   },
@@ -23,29 +23,29 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
               presets: [
                 [
                   "env",
                   {
-                    "targets": {
-                      "node": "current"
+                    targets: {
+                      node: "current"
                     }
                   }
                 ],
-                'react'
+                "react"
               ]
             }
-          },
-          {loader: 'eslint-loader'}
+          }
         ]
-      }, {
+      },
+      {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               url: false,
               sourceMap: true,
@@ -54,16 +54,14 @@ module.exports = {
             }
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               sourceMap: true,
-              plugins: [
-                require('autoprefixer')({ grid: true })
-              ]
+              plugins: [require("autoprefixer")({ grid: true })]
             }
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true
             }
@@ -73,9 +71,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
-  },
   plugins: [
     new StyleLintPlugin(),
   ],
 }
+    extensions: [".js", ".jsx"]
+  }
+};

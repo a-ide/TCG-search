@@ -1,7 +1,11 @@
 module.exports = {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
   "rules": {
-    "semi": ["error", "never"],
+    "prettier/prettier": "error",
     "no-shadow": 1,
     "arrow-body-style": 1,
     "arrow-parens": ["error", "as-needed"],
