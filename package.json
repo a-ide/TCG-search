@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/**/*.js",
+    "lint": "npm run lint:eslint && npm run lint:stylelint",
+    "lint:fix": "npm run lint:eslint -- --fix && npm run lint:stylelint -- --fix",
+    "lint:eslint": "eslint src/**/*.{js,jsx}",
+    "lint:stylelint": "node_modules/stylelint/bin/stylelint.js src/**/*.scss",
     "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
+    "build": "npm run build:back && npm run build:front",
     "build:back": "npx webpack --config ./webpack-back.config.js && npm run clean:img && node dist/sub.js",
     "build:front": "npx webpack --config ./webpack-front.config.js",
-    "start": "webpack-dev-server --config ./webpack-front.config.js",
-    "build": "npm run build:back && npm run build:front"
+    "start": "webpack-dev-server --config ./webpack-front.config.js"
   },
   "repository": {
     "type": "git",
@@ -30,21 +33,29 @@
     "css-loader": "^1.0.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "prettier": "1.14.3",
+    "prettier-stylelint": "^0.4.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
+    "stylelint": "^9.6.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.3.2",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "@fortawesome/react-fontawesome": "^0.1.3",
+    "autoprefixer": "^9.3.1",
     "babel-polyfill": "^6.26.0",
     "deep-object-diff": "^1.1.0",
     "delay": "^4.0.1",
@@ -55,6 +66,7 @@
     "react-dom": "^16.5.2",
     "request": "^2.88.0",
     "reset-css": "^4.0.1",
-    "superagent": "^4.0.0-beta.5"
+    "superagent": "^4.0.0-beta.5",
+    "webpack-node-externals": "^1.7.2"
   }
 }

@@ -1,5 +1,4 @@
 .catList {
-
   @include media($tb) {
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +16,7 @@
     }
 
     @include media($pc) {
-      transition: all 0.2s ease-in-out;
+      transition: all .2s ease-in-out;
       width: (91% / 3);
     }
 
@@ -55,7 +54,7 @@
 
   &__thumb {
     text-align: center;
-    
+
     > img {
       display: block;
       max-width: 100%;
@@ -102,8 +101,8 @@
     width: 100%;
     z-index: 10;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       border-bottom: 5px solid $main-color;
       content: "";
       top: -6px;
@@ -114,12 +113,12 @@
       z-index: 5;
     }
 
-    &:before {
+    &::before {
       border-left: 5px solid transparent;
       left: -1px;
     }
 
-    &:after {
+    &::after {
       border-right: 5px solid transparent;
       right: 0;
     }
@@ -127,8 +126,9 @@
 
   &__num {
     padding-left: 5px;
-    &:after {
-      content: "："
+
+    &::after {
+      content: "：";
     }
   }
 
@@ -147,7 +147,7 @@
 
   &__icon {
     margin-top: -2px;
-    
+
     > i {
       background-color: $white;
       border-radius: 3px;

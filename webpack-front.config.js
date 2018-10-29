@@ -1,12 +1,19 @@
+const MODE = "production";
+const autoprefixer = require("autoprefixer");
+
 module.exports = {
-  mode: 'development',
-  target: 'web',
-  entry: './src/index.js',
+  mode: MODE,
+  devtool: "source-map",
+  target: "web",
+  performance: {
+    hints: false
+  },
+  entry: "./src/index.jsx",
   output: {
-    filename: 'main.js'
+    filename: "main.js"
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: "dist",
     open: true,
     port: 3000
   },
@@ -14,30 +21,56 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                "env",
-                {
-                  "targets": {
-                    "node": "current"
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                [
+                  "env",
+                  {
+                    targets: {
+                      node: "current"
+                    }
                   }
-                }
-              ],
-              'react'
-            ]
+                ],
+                "react"
+              ]
+            }
           }
-        }
-      }, {
+        ]
+      },
+      {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          {loader: 'css-loader'},
-          {loader: 'sass-loader'}
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+              sourceMap: true,
+              minimize: true,
+              importLoaders: 2
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              plugins: [autoprefixer]
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
   }
-}
+};
