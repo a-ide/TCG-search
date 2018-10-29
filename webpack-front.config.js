@@ -1,5 +1,5 @@
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const MODE = "production";
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
   mode: MODE,
@@ -57,7 +57,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               sourceMap: true,
-              plugins: [require("autoprefixer")({ grid: true })]
+              plugins: [autoprefixer]
             }
           },
           {
@@ -71,10 +71,6 @@ module.exports = {
     ]
   },
   resolve: {
-  plugins: [
-    new StyleLintPlugin(),
-  ],
-}
     extensions: [".js", ".jsx"]
   }
 };
