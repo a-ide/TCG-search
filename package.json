@@ -6,13 +6,13 @@
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:stylelint",
     "lint:fix": "npm run lint:eslint -- --fix && npm run lint:stylelint -- --fix",
-    "lint:eslint": "eslint src/**/*.js src/**/*.jsx",
-    "lint:stylelint": "stylelint src/**/*.scss",
+    "lint:eslint": "eslint src/**/*.{js,jsx}",
+    "lint:stylelint": "node_modules/stylelint/bin/stylelint.js src/**/*.scss",
     "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
+    "build": "npm run build:back && npm run build:front",
     "build:back": "npx webpack --config ./webpack-back.config.js && npm run clean:img && node dist/sub.js",
     "build:front": "npx webpack --config ./webpack-front.config.js",
-    "start": "webpack-dev-server --config ./webpack-front.config.js",
-    "build": "npm run build:back && npm run build:front"
+    "start": "webpack-dev-server --config ./webpack-front.config.js"
   },
   "repository": {
     "type": "git",
