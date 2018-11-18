@@ -3,7 +3,6 @@ import axios from "axios";
 export const REQUEST_DATA = "REQUEST_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
 export const FILTER_VALUE = "FILTER_VALUE";
-export const RECONDUCT_FILTER = "RECONDUCT_FILTER";
 
 const requestData = () => ({
   type: REQUEST_DATA
@@ -45,7 +44,6 @@ const shouldFetchDate = state => {
   return state;
 };
 
-// リストデータを取得し、 receiveData を実行
 export const fetchDataIfNeeded = () => (dispatch, getState) => {
   if (shouldFetchDate(getState())) {
     return dispatch(fetchDate());
