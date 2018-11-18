@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./modules/frontend/App";
-import DisplayToggle from "./modules/frontend/DisplayToggle";
+import { render } from "react-dom";
+import Root from "./modules/frontend/Root";
 import "./css/style.scss";
+import DisplayToggle from "./modules/frontend/DisplayToggle";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+render(<Root />, document.getElementById("root"));
+
 DisplayToggle("js-toggle-trigger");
 DisplayToggle("js-toggle-search");
