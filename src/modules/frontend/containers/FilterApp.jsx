@@ -1,0 +1,96 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faVenus,
+  faMars,
+  faVideo,
+  faHome,
+  faPaw,
+  faCarSide,
+  faBirthdayCake,
+  faQuestionCircle,
+  faSearch
+} from "@fortawesome/free-solid-svg-icons";
+import { fetchDataIfNeeded } from "../actions";
+import Header from "../components/Header";
+import List from "./List";
+import Remark from "../components/Remark";
+import Circle from "./Circle";
+import SetHeaderHeight from "../SetHeaderHeight";
+import Modal from "../Modal";
+
+// font awesome のアイコンを利用
+library.add(
+  faVenus,
+  faMars,
+  faVideo,
+  faHome,
+  faPaw,
+  faCarSide,
+  faBirthdayCake,
+  faQuestionCircle,
+  faSearch
+);
+
+class AsyncApp extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchDataIfNeeded());
+  }
+
+  render() {
+    const {
+      isFetching,
+      items,
+      lastUpdated,
+      filteredValue,
+      dispatch
+    } = this.props;
+
+    SetHeaderHeight();
+
+    const modal = new Modal();
+    if (isFetching === undefined) {
+      modal.addModal();
+    }
+    if (!isFetching) {
+      modal.removeModal();
+    }
+
+    return (
+      <div>
+        <Header list={items} dispatch={dispatch} isFetching={isFetching} />
+        <div id="js-target-content" className="l-main">
+          <div className="l-main__inner">
+            <Remark lastUpdated={lastUpdated} />
+            {items &&
+              items.length > 0 && (
+                <div className="l-main__list">
+                  <List
+                    list={items}
+                    filteredValue={filteredValue}
+                    lastUpdated={lastUpdated}
+                  />
+                </div>
+              )}
+            <div className="l-main__result">
+              <Circle list={items} filteredValue={filteredValue} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  const { filteredList, filteredValue } = state;
+  const { isFetching, items, lastUpdated } = filteredList || {
+    isFetching: true,
+    items: []
+  };
+  return { isFetching, items, lastUpdated, filteredValue };
+};
+
+export default connect(mapStateToProps)(AsyncApp);
