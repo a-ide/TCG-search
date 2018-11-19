@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Icon from "../components/Icon";
 
 export default class List extends Component {
   render() {
@@ -33,48 +33,48 @@ export default class List extends Component {
                 item.status.sex === "女の子" ? (
                   <span className="catList__icon">
                     <i>
-                      <FontAwesomeIcon icon="venus" size="2x" color="#E19CD2" />
+                      <Icon icon="venus" size="2x" color="color-pink" />
                     </i>
                   </span>
                 ) : (
                   <span>
                     <i>
-                      <FontAwesomeIcon icon="mars" size="2x" color="#4CBFDA" />
+                      <Icon icon="mars" size="2x" color="color-blue" />
                     </i>
                   </span>
                 );
               const yellow = item.status.yellowCar ? (
                 <span className="catList__icon">
                   <i>
-                    <FontAwesomeIcon icon="car-side" color="#F7AF31" />
+                    <Icon icon="car-side" color="color-yellow" />
                   </i>
                 </span>
               ) : null;
               const debut = !item.status.debut ? (
                 <span className="catList__icon">
                   <i>
-                    <FontAwesomeIcon icon="birthday-cake" color="#EE411E" />
+                    <Icon icon="birthday-cake" color="color-red" />
                   </i>
                 </span>
               ) : null;
               const profVideo = item.status.profVideo ? (
                 <span className="catList__icon">
                   <i>
-                    <FontAwesomeIcon icon="video" color="#E2E448" />
+                    <Icon icon="video" color="color-green" />
                   </i>
                 </span>
               ) : null;
               const otherVideo = item.status.otherVideo ? (
                 <span className="catList__icon">
                   <i>
-                    <FontAwesomeIcon icon="video" color="#174395" />
+                    <Icon icon="video" color="color-navy-blue" />
                   </i>
                 </span>
               ) : null;
               const shareHouse = item.status.shareHouse ? (
                 <span className="catList__icon">
                   <i>
-                    <FontAwesomeIcon icon="home" color="#C23D86" />
+                    <Icon icon="home" color="color-purple" />
                   </i>
                 </span>
               ) : null;

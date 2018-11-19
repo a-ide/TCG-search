@@ -1,6 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Form from "../containers/Form";
+import Icon from "./Icon";
 import IconList from "./IconList";
 
 const Header = props => (
@@ -8,11 +8,11 @@ const Header = props => (
     <div className="l-header__inner">
       <h1 className="l-header__logo">
         <i className="c-icon">
-          <FontAwesomeIcon icon="paw" />
+          <Icon icon="paw" />
         </i>
         <span>TCG Search</span>
         <i className="c-icon">
-          <FontAwesomeIcon icon="paw" />
+          <Icon icon="paw" />
         </i>
       </h1>
       <div className="l-header__iconList">
@@ -21,7 +21,7 @@ const Header = props => (
     </div>
     <div id="js-toggle-search" className="l-header__search">
       <span>
-        <FontAwesomeIcon icon="search" color="#777" />
+        <Icon icon="search" color="color-gray" />
       </span>
     </div>
     <div className="l-header__form is-open">

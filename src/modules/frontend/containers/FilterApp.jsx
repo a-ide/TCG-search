@@ -1,17 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faVenus,
-  faMars,
-  faVideo,
-  faHome,
-  faPaw,
-  faCarSide,
-  faBirthdayCake,
-  faQuestionCircle,
-  faSearch
-} from "@fortawesome/free-solid-svg-icons";
 import { fetchDataIfNeeded } from "../actions";
 import Header from "../components/Header";
 import List from "./List";
@@ -19,19 +7,6 @@ import Remark from "../components/Remark";
 import Circle from "./Circle";
 import SetHeaderHeight from "../SetHeaderHeight";
 import Modal from "../Modal";
-
-// font awesome のアイコンを利用
-library.add(
-  faVenus,
-  faMars,
-  faVideo,
-  faHome,
-  faPaw,
-  faCarSide,
-  faBirthdayCake,
-  faQuestionCircle,
-  faSearch
-);
 
 class AsyncApp extends Component {
   componentDidMount() {
