@@ -39,16 +39,15 @@ class AsyncApp extends Component {
         <div id="js-target-content" className="l-main">
           <div className="l-main__inner">
             <Remark lastUpdated={lastUpdated} />
-            {items &&
-              items.length > 0 && (
-                <div className="l-main__list">
-                  <List
-                    list={items}
-                    filteredValue={filteredValue}
-                    lastUpdated={lastUpdated}
-                  />
-                </div>
-              )}
+            {items.length > 0 && (
+              <div className="l-main__list">
+                <List
+                  list={items}
+                  filteredValue={filteredValue}
+                  lastUpdated={lastUpdated}
+                />
+              </div>
+            )}
             <div className="l-main__result">
               <Circle list={items} filteredValue={filteredValue} />
             </div>
