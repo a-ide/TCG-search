@@ -11,15 +11,14 @@ const filteredList = (
 ) => {
   switch (action.type) {
     case REQUEST_DATA:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
+      return { ...state, isFetching: true };
     case RECEIVE_DATA:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         items: action.lists,
         lastUpdated: action.lastUpdated
-      });
+      };
     default:
       return state;
   }
@@ -32,10 +31,7 @@ const filteredValue = (
 ) => {
   switch (action.type) {
     case FILTER_VALUE: {
-      const newObj = Object.assign({}, state);
-      const key = action.name;
-      newObj[key] = action.value;
-      return Object.assign({}, newObj);
+      return { ...state, [action.name]: action.value };
     }
     default:
       return state;
