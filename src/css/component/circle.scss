@@ -16,11 +16,11 @@
   }
 
   &__inner {
+    font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
     text-align: center;
 
     @include media($pc) {
-      font-family: 'Roboto', sans-serif;
       font-size: 1.8rem;
     }
 
