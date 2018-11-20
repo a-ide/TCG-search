@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 import { REQUEST_DATA, RECEIVE_DATA, FILTER_VALUE } from "./actions";
 
-const data = (
+// リストを設定
+const filteredList = (
   state = {
     isFetching: false,
     items: []
@@ -19,17 +20,6 @@ const data = (
         items: action.lists,
         lastUpdated: action.lastUpdated
       });
-    default:
-      return state;
-  }
-};
-
-// リストを設定
-const filteredList = (state = {}, action) => {
-  switch (action.type) {
-    case RECEIVE_DATA:
-    case REQUEST_DATA:
-      return Object.assign({}, state, data(state, action));
     default:
       return state;
   }
