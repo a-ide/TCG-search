@@ -17,8 +17,9 @@ class SelectItem extends Component {
           <span>{label}</span>
           <select name={name} onChange={e => this.handleChange(e)}>
             <option>選択してください</option>
-            {options &&
-              options.map(option => <option key={option}>{option}</option>)}
+            {options.map(option => (
+              <option key={option}>{option}</option>
+            ))}
           </select>
         </label>
       </div>
