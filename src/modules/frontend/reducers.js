@@ -4,7 +4,8 @@ import { REQUEST_DATA, RECEIVE_DATA, FILTER_VALUE } from "./actions";
 // リストを設定
 const initialState = {
   isFetching: false,
-  items: []
+  items: [],
+  lastUpdated: null
 };
 
 const filteredList = (state = initialState, action) => {
