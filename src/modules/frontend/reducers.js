@@ -2,13 +2,12 @@ import { combineReducers } from "redux";
 import { REQUEST_DATA, RECEIVE_DATA, FILTER_VALUE } from "./actions";
 
 // リストを設定
-const filteredList = (
-  state = {
-    isFetching: false,
-    items: []
-  },
-  action
-) => {
+const initialState = {
+  isFetching: false,
+  items: []
+};
+
+const filteredList = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_DATA:
       return { ...state, isFetching: true };
