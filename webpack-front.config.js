@@ -27,15 +27,16 @@ module.exports = {
             options: {
               presets: [
                 [
-                  "env",
+                  "@babel/preset-env",
                   {
                     targets: {
                       node: "current"
                     }
                   }
                 ],
-                "react"
-              ]
+                "@babel/preset-react"
+              ],
+              plugins: ["@babel/plugin-proposal-object-rest-spread"]
             }
           }
         ]
