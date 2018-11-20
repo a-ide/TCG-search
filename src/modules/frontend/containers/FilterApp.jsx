@@ -15,13 +15,7 @@ class AsyncApp extends Component {
   }
 
   render() {
-    const {
-      isFetching,
-      items,
-      lastUpdated,
-      filteredValue,
-      dispatch
-    } = this.props;
+    const { isFetching, items, lastUpdated, filteredValue } = this.props;
 
     SetHeaderHeight();
 
@@ -35,7 +29,7 @@ class AsyncApp extends Component {
 
     return (
       <div>
-        <Header list={items} dispatch={dispatch} isFetching={isFetching} />
+        <Header list={items} isFetching={isFetching} />
         <div id="js-target-content" className="l-main">
           <div className="l-main__inner">
             <Remark lastUpdated={lastUpdated} />

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { setFilteredValue } from "../actions";
 
-export default class SelectItem extends Component {
+class SelectItem extends Component {
   handleChange(e) {
     e.persist();
     this.props.dispatch(setFilteredValue(e.target.name, e.target.value));
@@ -24,3 +25,5 @@ export default class SelectItem extends Component {
     );
   }
 }
+
+export default connect()(SelectItem);

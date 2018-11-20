@@ -3,7 +3,7 @@ import SelectItem from "../components/SelectItem";
 
 export default class Form extends Component {
   render() {
-    const { list, dispatch } = this.props;
+    const { list } = this.props;
     const newArray = [];
     const conditions = Object.keys({ age: [], sex: [] });
 
@@ -19,18 +19,8 @@ export default class Form extends Component {
 
     return (
       <form className="c-form">
-        <SelectItem
-          name="age"
-          label="年齢"
-          options={newArray[0]}
-          dispatch={dispatch}
-        />
-        <SelectItem
-          name="sex"
-          label="性別"
-          options={newArray[1]}
-          dispatch={dispatch}
-        />
+        <SelectItem name="age" label="年齢" options={newArray[0]} />
+        <SelectItem name="sex" label="性別" options={newArray[1]} />
       </form>
     );
   }

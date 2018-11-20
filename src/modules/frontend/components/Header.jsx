@@ -25,11 +25,7 @@ const Header = props => (
       </span>
     </div>
     <div className="l-header__form is-open">
-      <Form
-        list={props.list}
-        dispatch={props.dispatch}
-        isFetching={props.isFetching}
-      />
+      <Form list={props.list} isFetching={props.isFetching} />
     </div>
   </header>
 );
