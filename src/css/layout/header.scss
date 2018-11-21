@@ -17,13 +17,12 @@
 
   &__inner {
     background-color: $white;
-    border-bottom: none;
-    box-shadow: 0 1px 1px #ccc;
+    border-bottom: solid 2px $gray-light;
     padding: 10px 10px 8px;
     width: 100%;
 
     @include media($pc) {
-      box-shadow: none;
+      border-bottom: none;
       width: auto;
     }
 
@@ -87,10 +86,11 @@
     > button {
       appearance: none;
       background-color: $white;
-      border: none;
+      border: solid 2px $gray-light;
+      border-top: none;
       border-radius: 0 0 10px 10px;
-      box-shadow: 0 1px 1px #ccc;
       display: inline-block;
+      margin-top: -2px;
       padding: 10px;
     }
 
@@ -101,13 +101,13 @@
 
   &__form {
     background-color: $white;
-    box-shadow: 0 1px 1px #ccc;
+    border-bottom: solid 2px $gray-light;
     display: none;
     order: 1;
     width: 100%;
 
     @include media($pc) {
-      box-shadow: none;
+      border-bottom: none;
       display: block;
       order: 0;
       width: auto;
