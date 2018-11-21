@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import List from "./List";
 import Remark from "../components/Remark";
 import Circle from "./Circle";
-import SetHeaderHeight from "../SetHeaderHeight";
 import Modal from "../Modal";
 
 class AsyncApp extends Component {
@@ -16,8 +15,6 @@ class AsyncApp extends Component {
 
   render() {
     const { isFetching, items, lastUpdated, filteredValue } = this.props;
-
-    SetHeaderHeight();
 
     const modal = new Modal();
     if (isFetching === undefined) {
