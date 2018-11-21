@@ -11,6 +11,14 @@ class IconList extends React.Component {
       { icon: "video", name: "その他の動画有り", color: "navy-blue" },
       { icon: "home", name: "シェアハウス入居", color: "purple" }
     ];
+    this.state = {
+      iconListDisplay: false
+    };
+    this.toggleDisplayed = this.toggleDisplayed.bind(this);
+  }
+
+  toggleDisplayed() {
+    this.setState({ iconListDisplay: !this.state.iconListDisplay });
   }
 
   render() {
@@ -25,10 +33,26 @@ class IconList extends React.Component {
 
     return (
       <div className="iconList">
-        <div id="js-toggle-trigger" className="iconList__trigger">
-          <Icon icon="question-circle" />
+        <button
+          onClick={this.toggleDisplayed}
+          type="button"
+          className={
+            this.state.iconListDisplay
+              ? "iconList__trigger is-open"
+              : "iconList__trigger"
+          }
+        >
+          <Icon icon="question-circle" size="2x" />
+        </button>
+        <div
+          className={
+            this.state.iconListDisplay
+              ? "iconList__list is-open"
+              : "iconList__list"
+          }
+        >
+          {listItem}
         </div>
-        <div className="iconList__list">{listItem}</div>
       </div>
     );
   }
