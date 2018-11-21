@@ -17,19 +17,28 @@
 
   &__inner {
     background-color: $white;
-    border-bottom: dashed 1px currentColor;
+    border-bottom: none;
+    box-shadow: 0 1px 1px #ccc;
     padding: 10px 10px 8px;
     width: 100%;
 
     @include media($pc) {
-      border-bottom: none;
+      box-shadow: none;
       width: auto;
+    }
+
+    &.is-open {
+      border-bottom: dashed 1px currentColor;
+
+      @include media($pc) {
+        border-bottom: none;
+      }
     }
   }
 
   &__logo {
     color: $main-color;
-    font-family: 'Cabin Sketch', cursive;
+    font-family: "Cabin Sketch", cursive;
     font-size: 1.6rem;
     text-align: center;
 
@@ -50,7 +59,7 @@
 
   &__iconList {
     position: fixed;
-    right: 0;
+    right: 15px;
     top: 0;
     z-index: 150;
 
@@ -68,28 +77,23 @@
   &__search {
     display: table;
     margin-left: auto;
-    margin-top: -3px;
     order: 2;
-    padding-right: 10px;
+    padding-right: 15px;
 
     @include media($pc) {
       display: none;
     }
 
-    &.is-open {
-      margin-top: 0;
-    }
-
-    > span {
+    > button {
+      appearance: none;
       background-color: $white;
-      border: 3px solid $gray-base;
-      border-top: none;
+      border: none;
       border-radius: 0 0 10px 10px;
+      box-shadow: 0 1px 1px #ccc;
       display: inline-block;
       padding: 10px;
     }
 
-    > span,
     > svg {
       pointer-events: none;
     }
@@ -97,14 +101,14 @@
 
   &__form {
     background-color: $white;
-    border-bottom: solid 3px #777;
+    box-shadow: 0 1px 1px #ccc;
     display: none;
     order: 1;
     width: 100%;
 
     @include media($pc) {
-      border-bottom: none;
-      display: none;
+      box-shadow: none;
+      display: block;
       order: 0;
       width: auto;
     }

@@ -1,5 +1,5 @@
 $bg-main-color: lighten($gray-light, 16%);
-$bg-sub-color:  lighten($gray-light, 18%);
+$bg-sub-color: lighten($gray-light, 18%);
 
 .l-main {
   background-image:
@@ -16,6 +16,11 @@ $bg-sub-color:  lighten($gray-light, 18%);
   background-size: 30px 30px;
   background-attachment: fixed;
   min-height: 100vh;
+  padding-top: 85px;
+
+  @include media($pc) {
+    padding-top: 65px;
+  }
 
   &__inner {
     padding: 15px;
