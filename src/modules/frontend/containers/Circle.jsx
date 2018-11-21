@@ -5,16 +5,16 @@ export default class Circle extends Component {
     const { list, filteredValue } = this.props;
     let newList = [];
 
-    const filteredList = (items, conditions) => {
-      return items.filter(item => {
+    const filteredList = (items, conditions) =>
+      items.filter(item => {
         /* eslint-disable no-unused-vars */
-        const matches = Object.entries(conditions).map(([key, value]) => {
-          return value === "選択してください" || item.status[key] === value;
-        });
+        const matches = Object.entries(conditions).map(
+          ([key, value]) =>
+            value === "選択してください" || item.status[key] === value
+        );
 
         return matches.every(isMatched => isMatched);
       });
-    };
 
     newList = filteredList(list, filteredValue);
 

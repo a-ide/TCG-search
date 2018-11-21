@@ -6,18 +6,35 @@ export default class List extends Component {
     const { isFetching, list, filteredValue } = this.props;
     let newList = [];
 
-    const filteredList = (items, conditions) => {
-      return items.filter(item => {
+    const filteredList = (items, conditions) =>
+      items.filter(item => {
         /* eslint-disable no-unused-vars */
-        const matches = Object.entries(conditions).map(([key, value]) => {
-          return value === "選択してください" || item.status[key] === value;
-        });
+        const matches = Object.entries(conditions).map(
+          ([key, value]) =>
+            value === "選択してください" || item.status[key] === value
+        );
 
         return matches.every(isMatched => isMatched);
       });
-    };
 
     newList = filteredList(list, filteredValue);
+
+    const createIcon = type => {
+      switch (type) {
+        case "yelloCar":
+          return <Icon icon="car-side" color="color-yellow" />;
+        case "debut":
+          return <Icon icon="birthday-cake" color="color-red" />;
+        case "profVideo":
+          return <Icon icon="video" color="color-green" />;
+        case "otherVideo":
+          return <Icon icon="video" color="color-navy-blue" />;
+        case "shareHouse":
+          return <Icon icon="home" color="color-purple" />;
+        default:
+          return null;
+      }
+    };
 
     return (
       <div>
@@ -39,41 +56,41 @@ export default class List extends Component {
                   </i>
                 </span>
               );
-            const yellow = item.status.yellowCar ? (
+            const yellow = (
               <span className="catList__icon">
                 <i>
                   <Icon icon="car-side" color="color-yellow" />
                 </i>
               </span>
-            ) : null;
-            const debut = !item.status.debut ? (
+            );
+            const debut = (
               <span className="catList__icon">
                 <i>
                   <Icon icon="birthday-cake" color="color-red" />
                 </i>
               </span>
-            ) : null;
-            const profVideo = item.status.profVideo ? (
+            );
+            const profVideo = (
               <span className="catList__icon">
                 <i>
                   <Icon icon="video" color="color-green" />
                 </i>
               </span>
-            ) : null;
-            const otherVideo = item.status.otherVideo ? (
+            );
+            const otherVideo = (
               <span className="catList__icon">
                 <i>
                   <Icon icon="video" color="color-navy-blue" />
                 </i>
               </span>
-            ) : null;
-            const shareHouse = item.status.shareHouse ? (
+            );
+            const shareHouse = (
               <span className="catList__icon">
                 <i>
                   <Icon icon="home" color="color-purple" />
                 </i>
               </span>
-            ) : null;
+            );
 
             return (
               <li className="catList__item" key={item.status.num}>
@@ -93,11 +110,10 @@ export default class List extends Component {
                     <div>
                       <p className="catList__status">
                         <span>{item.status.age}</span>
-                        {yellow}
-                        {debut}
-                        {profVideo}
-                        {otherVideo}
-                        {shareHouse}
+                        {!item.status.debut && createIcon("debut")}
+                        {item.status.profVideo && createIcon("profVideo")}
+                        {item.status.otherVideo && createIcon("otherVideo")}
+                        {item.status.shareHouse && createIcon("shareHouse")}
                       </p>
                     </div>
                   </div>
