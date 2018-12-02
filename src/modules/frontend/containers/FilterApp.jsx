@@ -7,7 +7,7 @@ import Remark from "../components/Remark";
 import Circle from "./Circle";
 import Modal from "../Modal";
 
-class AsyncApp extends Component {
+class FilterApp extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchDataIfNeeded());
@@ -58,4 +58,4 @@ const mapStateToProps = state => {
   return { isFetching, items, lastUpdated, filteredValue };
 };
 
-export default connect(mapStateToProps)(AsyncApp);
+export default connect(mapStateToProps)(FilterApp);
