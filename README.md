@@ -5,7 +5,7 @@
 
 ![tcg](https://user-images.githubusercontent.com/24849815/49349886-1766d800-f6f0-11e8-93a1-acef0e3cda35.gif)
 
-## Dependency
+## Dependencies
 
 - node 8.x
 - npm 6+
