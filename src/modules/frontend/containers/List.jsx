@@ -21,16 +21,46 @@ export default class List extends Component {
 
     const createIcon = type => {
       switch (type) {
-        case "yelloCar":
-          return <Icon icon="car-side" color="color-yellow" />;
+        case "yellowCar":
+          return (
+            <span className="catList__icon">
+              <i>
+                <Icon icon="car-side" color="color-yellow" />
+              </i>
+            </span>
+          );
         case "debut":
-          return <Icon icon="birthday-cake" color="color-red" />;
+          return (
+            <span className="catList__icon">
+              <i>
+                <Icon icon="birthday-cake" color="color-red" />
+              </i>
+            </span>
+          );
         case "profVideo":
-          return <Icon icon="video" color="color-green" />;
+          return (
+            <span className="catList__icon">
+              <i>
+                <Icon icon="video" color="color-green" />
+              </i>
+            </span>
+          );
         case "otherVideo":
-          return <Icon icon="video" color="color-navy-blue" />;
+          return (
+            <span className="catList__icon">
+              <i>
+                <Icon icon="video" color="color-navy-blue" />
+              </i>
+            </span>
+          );
         case "shareHouse":
-          return <Icon icon="home" color="color-purple" />;
+          return (
+            <span className="catList__icon">
+              <i>
+                <Icon icon="home" color="color-purple" />
+              </i>
+            </span>
+          );
         default:
           return null;
       }
@@ -56,41 +86,6 @@ export default class List extends Component {
                   </i>
                 </span>
               );
-            const yellow = (
-              <span className="catList__icon">
-                <i>
-                  <Icon icon="car-side" color="color-yellow" />
-                </i>
-              </span>
-            );
-            const debut = (
-              <span className="catList__icon">
-                <i>
-                  <Icon icon="birthday-cake" color="color-red" />
-                </i>
-              </span>
-            );
-            const profVideo = (
-              <span className="catList__icon">
-                <i>
-                  <Icon icon="video" color="color-green" />
-                </i>
-              </span>
-            );
-            const otherVideo = (
-              <span className="catList__icon">
-                <i>
-                  <Icon icon="video" color="color-navy-blue" />
-                </i>
-              </span>
-            );
-            const shareHouse = (
-              <span className="catList__icon">
-                <i>
-                  <Icon icon="home" color="color-purple" />
-                </i>
-              </span>
-            );
 
             return (
               <li className="catList__item" key={item.status.num}>
@@ -110,6 +105,7 @@ export default class List extends Component {
                     <div>
                       <p className="catList__status">
                         <span>{item.status.age}</span>
+                        {item.status.yellowCar && createIcon("yellowCar")}
                         {!item.status.debut && createIcon("debut")}
                         {item.status.profVideo && createIcon("profVideo")}
                         {item.status.otherVideo && createIcon("otherVideo")}
