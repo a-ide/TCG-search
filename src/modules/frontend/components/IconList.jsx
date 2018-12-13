@@ -22,15 +22,6 @@ class IconList extends React.Component {
   }
 
   render() {
-    const listItem = this.iconList.map(item => (
-      <dl className="iconList__item" key={item.color}>
-        <dt className="iconList__icon">
-          <Icon icon={item.icon} color={`color-${item.color}`} />
-        </dt>
-        <dd>{item.name}</dd>
-      </dl>
-    ));
-
     return (
       <div className="iconList">
         <button
@@ -51,7 +42,14 @@ class IconList extends React.Component {
               : "iconList__list"
           }
         >
-          {listItem}
+          {this.iconList.map(item => (
+            <dl className="iconList__item" key={item.color}>
+              <dt className="iconList__icon">
+                <Icon icon={item.icon} color={`color-${item.color}`} />
+              </dt>
+              <dd>{item.name}</dd>
+            </dl>
+          ))}
         </div>
       </div>
     );
