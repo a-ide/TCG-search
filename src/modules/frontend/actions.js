@@ -14,13 +14,11 @@ const receiveData = data => ({
   lastUpdated: data.lastUpdated
 });
 
-export function setFilteredValue(name, value) {
-  return {
-    type: FILTER_VALUE,
-    name,
-    value
-  };
-}
+export const setFilteredValue = (name, value) => ({
+  type: FILTER_VALUE,
+  name,
+  value
+});
 
 export const fetchDate = () => dispatch => {
   dispatch(requestData());
