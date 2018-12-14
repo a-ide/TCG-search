@@ -1,16 +1,17 @@
 import React from "react";
 import Icon from "./Icon";
 
+const ICON_LIST = [
+  { icon: "car-side", name: "譲渡会参加予定", color: "yellow" },
+  { icon: "birthday-cake", name: "近日デビュー", color: "red" },
+  { icon: "video", name: "紹介動画有り", color: "green" },
+  { icon: "video", name: "その他の動画有り", color: "navy-blue" },
+  { icon: "home", name: "シェアハウス入居", color: "purple" }
+];
+
 class IconList extends React.Component {
   constructor(props) {
     super(props);
-    this.iconList = [
-      { icon: "car-side", name: "譲渡会参加予定", color: "yellow" },
-      { icon: "birthday-cake", name: "近日デビュー", color: "red" },
-      { icon: "video", name: "紹介動画有り", color: "green" },
-      { icon: "video", name: "その他の動画有り", color: "navy-blue" },
-      { icon: "home", name: "シェアハウス入居", color: "purple" }
-    ];
     this.state = {
       iconListDisplay: false
     };
@@ -42,7 +43,7 @@ class IconList extends React.Component {
               : "iconList__list"
           }
         >
-          {this.iconList.map(item => (
+          {ICON_LIST.map(item => (
             <dl className="iconList__item" key={item.color}>
               <dt className="iconList__icon">
                 <Icon icon={item.icon} color={`color-${item.color}`} />
