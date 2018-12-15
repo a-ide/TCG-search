@@ -1,4 +1,4 @@
-import axios from "axios";
+import getCatList from "./api";
 
 export const REQUEST_DATA = "REQUEST_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
@@ -20,12 +20,10 @@ export const setFilteredValue = (name, value) => ({
   value
 });
 
-export const fetchDate = () => dispatch => {
+export const fetchDate = () => async dispatch => {
   dispatch(requestData());
-  return axios
-    .get("./data/catList.json")
-    .then(response => response.data)
-    .then(data => dispatch(receiveData(data)));
+  const data = await getCatList();
+  return dispatch(receiveData(data));
 };
 
 const shouldFetchDate = state => {
