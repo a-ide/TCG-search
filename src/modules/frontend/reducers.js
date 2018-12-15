@@ -3,12 +3,15 @@ import { REQUEST_DATA, RECEIVE_DATA, FILTER_VALUE } from "./actions";
 
 // リストを設定
 const initialState = {
-  isFetching: false,
-  items: [],
-  lastUpdated: null
+  list: {
+    isFetching: false,
+    items: [],
+    lastUpdated: null
+  },
+  option: { age: "選択してください", sex: "選択してください" }
 };
 
-const filteredList = (state = initialState, action) => {
+const filteredList = (state = initialState.list, action) => {
   switch (action.type) {
     case REQUEST_DATA:
       return { ...state, isFetching: true };
@@ -25,10 +28,7 @@ const filteredList = (state = initialState, action) => {
 };
 
 // option（条件）を設定
-const filteredValue = (
-  state = { age: "選択してください", sex: "選択してください" },
-  action
-) => {
+const filteredValue = (state = initialState.option, action) => {
   switch (action.type) {
     case FILTER_VALUE: {
       return { ...state, [action.name]: action.value };
