@@ -10,17 +10,13 @@ const ICON_LIST = [
 ];
 
 class IconList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      iconListDisplay: false
-    };
-    this.toggleDisplayed = this.toggleDisplayed.bind(this);
-  }
+  state = {
+    iconListDisplay: false
+  };
 
-  toggleDisplayed() {
+  toggleDisplayed = () => {
     this.setState({ iconListDisplay: !this.state.iconListDisplay });
-  }
+  };
 
   render() {
     return (

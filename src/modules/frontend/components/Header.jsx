@@ -4,17 +4,13 @@ import Icon from "./Icon";
 import IconList from "./IconList";
 
 export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchDisplay: false
-    };
-    this.toggleDisplayed = this.toggleDisplayed.bind(this);
-  }
+  state = {
+    searchDisplay: false
+  };
 
-  toggleDisplayed() {
+  toggleDisplayed = () => {
     this.setState({ searchDisplay: !this.state.searchDisplay });
-  }
+  };
 
   render() {
     return (
