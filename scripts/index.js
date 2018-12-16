@@ -1,10 +1,10 @@
 import "@babel/polyfill";
 import path from "path";
-import getJSON from "./modules/backend/getJSON";
-import sort from "./modules/backend/sort";
-import updateJSON from "./modules/backend/updateJSON";
-import downloadImg from "./modules/backend/downloadImg";
-import getCurrentTime from "./modules/backend/getCurrentTime";
+import getJSON from "./getJSON";
+import sort from "./sort";
+import updateJSON from "./updateJSON";
+import downloadImg from "./downloadImg";
+import getCurrentTime from "./getCurrentTime";
 
 (async () => {
   try {
