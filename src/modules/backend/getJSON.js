@@ -27,7 +27,6 @@ const getJSON = async target => {
             // 画像の情報を取得し、オブジェクトに状態を追加
             const imageItem = item.getElementsByTagName("img");
             Array.from(imageItem).forEach(image => {
-              console.log(image);
               const imgSrc = image.getAttribute("src");
 
               if (/yellow_car_icon/.test(imgSrc)) {

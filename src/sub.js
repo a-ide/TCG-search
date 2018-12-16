@@ -1,4 +1,4 @@
-import "babel-polyfill";
+import "@babel/polyfill";
 import path from "path";
 import getJSON from "./modules/backend/getJSON";
 import sort from "./modules/backend/sort";

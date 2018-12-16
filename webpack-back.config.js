@@ -1,5 +1,5 @@
 const nodeExternals = require("webpack-node-externals");
-require("babel-polyfill");
+require("@babel/polyfill");
 
 module.exports = {
   mode: "development",
@@ -15,7 +15,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: "env"
+            presets: ["@babel/preset-env"]
           }
         },
         exclude: /node_modules/

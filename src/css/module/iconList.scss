@@ -1,12 +1,15 @@
 .iconList {
+  text-align: right;
+
   @include media($pc) {
     margin: auto;
     max-width: 1000px;
   }
 
   &__trigger {
-    padding: 15px;
-    text-align: right;
+    appearance: none;
+    border: none;
+    padding: 10px;
 
     @include media($pc) {
       display: none;
@@ -45,9 +48,10 @@
 
   &__list {
     background-color: $white;
+    border: solid 3px $gray-base;
     display: none;
     padding: 15px;
-    border: solid 3px $gray-base;
+    text-align: left;
 
     @include media($pc) {
       background-color: transparent;

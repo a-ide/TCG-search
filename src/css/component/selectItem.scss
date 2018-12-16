@@ -39,6 +39,7 @@
     > select {
       appearance: none;
       background-color: lighten($sub-color, 15%);
+      border: 1px solid $gray-base;
       border-radius: 0;
       font-size: .8rem;
       padding: 8px 8px 12px;
