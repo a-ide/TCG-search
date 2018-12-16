@@ -1,5 +1,6 @@
 const MODE = "production";
 const autoprefixer = require("autoprefixer");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: MODE,
@@ -74,6 +75,7 @@ module.exports = {
       }
     ]
   },
+  plugins: [new HtmlWebpackPlugin({ template: "src/index.html" })],
   resolve: {
     extensions: [".js", ".jsx"]
   }
