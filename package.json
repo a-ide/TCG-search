@@ -9,8 +9,9 @@
     "lint:eslint": "eslint src/**/*.{js,jsx}",
     "lint:stylelint": "node_modules/stylelint/bin/stylelint.js src/**/*.scss",
     "clean:img": "rm -rf ./dist/img && mkdir ./dist/img",
+    "make:file": "rm -rf dist && mkdir -p dist/data dist-scripts/data dist-scripts/img && touch dist/data/catList.json dist-scripts/data/catList.json",
     "build": "npm run build:back && npm run build:front",
-    "build:back": "npx webpack --config ./webpack-back.config.js && npm run clean:img && node dist/sub.js",
+    "build:back": "npm run make:file && babel --config-file ./babel-back.config.js scripts --out-dir dist-scripts && node ./dist-scripts/index.js && mv dist-scripts/data/catList.json dist/data/catList.json && mv dist-scripts/img dist && rm -rf dist-scripts",
     "build:front": "npx webpack --config ./webpack-front.config.js",
     "start": "webpack-dev-server --config ./webpack-front.config.js"
   },
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/a-ide/TCG-search#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
